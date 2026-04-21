@@ -1272,6 +1272,7 @@
     @media (max-width: 1100px) {
       .hero__content { padding-inline: var(--space-8); }
       .hero__card { display: none; }
+      /* card re-shown inline on mobile — see 768px below */
       .for-you__inner { grid-template-columns: 1fr; gap: var(--space-12); }
       .for-you__sticky { position: static; }
       .story__inner { grid-template-columns: 1fr; gap: var(--space-8); }
@@ -1294,6 +1295,18 @@
       .hero__title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
       .hero__content { padding-inline: var(--space-6); }
       .hero__scroll { display: none; }
+
+      /* Credential card — show inline below buttons on mobile */
+      .hero__card {
+        display: block;
+        position: static;
+        margin-top: var(--space-8);
+        max-width: 100%;
+        background: rgba(250,246,239,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        padding: var(--space-4) var(--space-6);
+        animation: fadeIn 1s ease 1s forwards;
+      }
 
       /* Letter */
       .letter { padding-block: var(--space-16); }
@@ -1435,10 +1448,10 @@
           <a href="contact.html" class="btn btn-emerald">Book a Clarity Call</a>
           <a href="work-with-me.html" class="btn btn-ghost">Explore the Programme</a>
         </div>
-      </div>
-      <div class="hero__card" aria-hidden="true">
-        <p class="hero__card-label">Ph.D. Global Leadership</p>
-        <p class="hero__card-text">Creator of the VOICE Framework™</p>
+        <div class="hero__card" aria-hidden="true">
+          <p class="hero__card-label">Ph.D. Global Leadership</p>
+          <p class="hero__card-text">Creator of the VOICE Framework™</p>
+        </div>
       </div>
       <div class="hero__scroll" aria-hidden="true">
         <div class="hero__scroll-line"></div>
