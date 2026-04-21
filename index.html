@@ -31,14 +31,16 @@
     ══════════════════════════════════════════ */
     .hero {
       position: relative;
-      min-height: max(100svh, 680px);
+      height: 70vh;
+      min-height: 480px;
+      max-height: 700px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
 
     .hero__spacer {
-      height: calc(96px + 80px); /* nav height + breathing room */
+      height: calc(96px + 40px);
       flex-shrink: 0;
     }
 
@@ -48,7 +50,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center center;
       display: block;
     }
 
