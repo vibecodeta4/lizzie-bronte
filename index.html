@@ -27,21 +27,38 @@
     .nav.scrolled .nav__hamburger span { background-color: var(--color-deep-purple); }
 
     /* ══════════════════════════════════════════
-       HERO — full bleed, photography-led
+       HERO — two-column: content left | photo right
     ══════════════════════════════════════════ */
     .hero {
+      display: grid;
+      grid-template-columns: 58fr 42fr;
+      min-height: 100vh;
       position: relative;
-      height: 70vh;
-      min-height: 480px;
-      max-height: 700px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
     }
 
-    .hero__spacer {
-      height: calc(96px + 40px);
-      flex-shrink: 0;
+    .hero__left {
+      background-color: var(--color-deep-purple);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: calc(96px + var(--space-16)) var(--space-16) var(--space-24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__left::before {
+      content: '';
+      position: absolute;
+      top: 30%; left: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,120,64,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero__right {
+      position: relative;
+      overflow: hidden;
     }
 
     .hero__photo {
@@ -50,27 +67,20 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
+      object-position: center top;
       display: block;
     }
 
-    /* Rich warm overlay — darker at bottom where text sits */
     .hero__overlay {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to top, rgba(19,10,16,0.92) 0%, rgba(19,10,16,0.5) 45%, rgba(19,10,16,0.15) 100%),
-        linear-gradient(to right, rgba(19,10,16,0.3) 0%, transparent 60%);
+      background: linear-gradient(to right, rgba(19,10,16,0.3) 0%, transparent 50%);
     }
 
     .hero__content {
       position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: var(--container-wide);
-      margin-inline: auto;
-      padding-inline: var(--space-16);
-      padding-bottom: var(--space-24);
+      z-index: 1;
+      max-width: 580px;
     }
 
     .hero__eyebrow {
@@ -98,7 +108,7 @@
     .hero__title {
       font-family: var(--font-display);
       font-weight: var(--weight-light);
-      font-size: clamp(2rem, 3.2vw, 3.6rem);
+      font-size: clamp(2.2rem, 3.2vw, 4rem);
       line-height: 1.05;
       color: var(--color-white);
       letter-spacing: var(--tracking-tight);
@@ -132,19 +142,15 @@
       animation: fadeUp 0.8s ease 0.65s forwards;
     }
 
-    /* Floating credential card */
     .hero__card {
-      position: absolute;
-      bottom: var(--space-20);
-      right: var(--space-16);
-      background: rgba(250,246,239,0.1);
+      margin-top: var(--space-10);
+      background: rgba(250,246,239,0.08);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: var(--space-6) var(--space-8);
-      max-width: 260px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: var(--space-5) var(--space-6);
+      display: inline-block;
       opacity: 0;
       animation: fadeIn 1s ease 1s forwards;
-      z-index: 2;
     }
 
     .hero__card-label {
@@ -153,7 +159,7 @@
       letter-spacing: var(--tracking-widest);
       text-transform: uppercase;
       color: var(--color-soft-lavender);
-      margin-bottom: var(--space-3);
+      margin-bottom: var(--space-2);
     }
 
     .hero__card-text {
@@ -165,33 +171,8 @@
       line-height: var(--leading-snug);
     }
 
-    /* Scroll hint */
-    .hero__scroll {
-      position: absolute;
-      bottom: var(--space-8);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-2);
-      opacity: 0;
-      animation: fadeIn 1s ease 1.2s forwards;
-      z-index: 2;
-    }
-
-    .hero__scroll-line {
-      width: 1px;
-      height: 48px;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.35));
-    }
-
-    .hero__scroll span {
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-    }
+    .hero__spacer { display: none; }
+    .hero__scroll { display: none; }
 
     /* ══════════════════════════════════════════
        PERSONAL LETTER — warm, intimate intro
@@ -1274,9 +1255,8 @@
        RESPONSIVE
     ══════════════════════════════════════════ */
     @media (max-width: 1100px) {
-      .hero__content { padding-inline: var(--space-8); }
-      .hero__card { display: none; }
-      /* card re-shown inline on mobile — see 768px below */
+      .hero { grid-template-columns: 60fr 40fr; }
+      .hero__left { padding: calc(96px + var(--space-12)) var(--space-10) var(--space-20); }
       .for-you__inner { grid-template-columns: 1fr; gap: var(--space-12); }
       .for-you__sticky { position: static; }
       .story__inner { grid-template-columns: 1fr; gap: var(--space-8); }
@@ -1295,22 +1275,13 @@
     }
 
     @media (max-width: 768px) {
-      /* Hero */
+      /* Hero — stack on mobile: photo top, content below */
+      .hero { grid-template-columns: 1fr; min-height: unset; }
+      .hero__right { height: 380px; order: -1; }
+      .hero__overlay { background: linear-gradient(to bottom, rgba(19,10,16,0.55) 0%, rgba(19,10,16,0) 45%); }
+      .hero__left { padding: var(--space-10) var(--space-6) var(--space-12); justify-content: flex-start; }
       .hero__title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
-      .hero__content { padding-inline: var(--space-6); }
-      .hero__scroll { display: none; }
-
-      /* Credential card — show inline below buttons on mobile */
-      .hero__card {
-        display: block;
-        position: static;
-        margin-top: var(--space-8);
-        max-width: 100%;
-        background: rgba(250,246,239,0.08);
-        border: 1px solid rgba(255,255,255,0.12);
-        padding: var(--space-4) var(--space-6);
-        animation: fadeIn 1s ease 1s forwards;
-      }
+      .hero__card { display: inline-block; }
 
       /* Letter */
       .letter { padding-block: var(--space-16); }
@@ -1366,8 +1337,8 @@
 
     @media (max-width: 480px) {
       /* Hero */
-      .hero__spacer { height: calc(96px + 40px); }
-      .hero__content { padding-inline: var(--space-4); padding-bottom: var(--space-12); }
+      .hero__right { height: 320px; }
+      .hero__left { padding: var(--space-8) var(--space-4) var(--space-10); }
       .hero__ctas { flex-direction: column; align-items: flex-start; }
       .hero__ctas .btn { width: 100%; justify-content: center; }
 
@@ -1435,31 +1406,30 @@
 
   <main>
 
-    <!-- ════ HERO — full bleed photo ════ -->
+    <!-- ════ HERO — two-column split ════ -->
     <section class="hero" aria-label="Introduction">
-      <img src="images/hero-photo.jpg" alt="" class="hero__photo" />
-      <div class="hero__overlay" aria-hidden="true"></div>
-      <div class="hero__spacer" aria-hidden="true"></div>
-      <div class="hero__content">
-        <h1 class="hero__title">
-          You've done<br />the work.<br /><em>Now own the room.</em>
-        </h1>
-        <p class="hero__eyebrow">Executive Advisory for Women</p>
-        <p class="hero__subtitle">
-          Executive advisory for high-performing women who are impressive on paper — and ready to feel it in every room they walk into.
-        </p>
-        <div class="hero__ctas">
-          <a href="contact.html" class="btn btn-emerald">Book a Clarity Call</a>
-          <a href="work-with-me.html" class="btn btn-ghost">Explore the Programme</a>
-        </div>
-        <div class="hero__card" aria-hidden="true">
-          <p class="hero__card-label">Ph.D. Global Leadership</p>
-          <p class="hero__card-text">Creator of the VOICE Framework™</p>
+      <div class="hero__left">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Executive Advisory for Women</p>
+          <h1 class="hero__title">
+            You've done<br />the work.<br /><em>Now own the room.</em>
+          </h1>
+          <p class="hero__subtitle">
+            Executive advisory for high-performing women who are impressive on paper — and ready to feel it in every room they walk into.
+          </p>
+          <div class="hero__ctas">
+            <a href="contact.html" class="btn btn-emerald">Book a Clarity Call</a>
+            <a href="work-with-me.html" class="btn btn-ghost">Explore the Programme</a>
+          </div>
+          <div class="hero__card" aria-hidden="true">
+            <p class="hero__card-label">Ph.D. Global Leadership</p>
+            <p class="hero__card-text">Creator of the VOICE Framework™</p>
+          </div>
         </div>
       </div>
-      <div class="hero__scroll" aria-hidden="true">
-        <div class="hero__scroll-line"></div>
-        <span>Scroll</span>
+      <div class="hero__right">
+        <img src="images/hero-photo.jpg" alt="Dr. Lizzie Bronte" class="hero__photo" />
+        <div class="hero__overlay" aria-hidden="true"></div>
       </div>
     </section>
 
