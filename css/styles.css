@@ -10,9 +10,9 @@
 ──────────────────────────────────────────────────────────────── */
 :root {
   /* Warm Authority Palette */
-  --color-deep-purple:     #1E0F18;   /* deep warm espresso-wine */
-  --color-purple-dark:     #130A10;   /* near-black wine */
-  --color-purple-mid:      #3D1A2E;   /* mid wine */
+  --color-deep-purple:     #3D1A2E;   /* warm wine / main brand dark */
+  --color-purple-dark:     #1E0F18;   /* very dark — hover states only */
+  --color-purple-mid:      #5A2840;   /* mid burgundy */
   --color-soft-lavender:   #E8C4B0;   /* warm blush (replaces cold lavender) */
   --color-ivory:           #FAF6EF;   /* warm cream */
   --color-white:           #FDFAF7;   /* warm white */
