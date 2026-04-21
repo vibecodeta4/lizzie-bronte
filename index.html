@@ -48,15 +48,17 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 15%;
       display: block;
     }
 
-    /* Rich warm overlay — nearly solid to hide text baked into photo */
+    /* Rich warm overlay — darker at bottom where text sits */
     .hero__overlay {
       position: absolute;
       inset: 0;
-      background: rgba(19,10,16,0.93);
+      background:
+        linear-gradient(to top, rgba(19,10,16,0.92) 0%, rgba(19,10,16,0.5) 45%, rgba(19,10,16,0.15) 100%),
+        linear-gradient(to right, rgba(19,10,16,0.3) 0%, transparent 60%);
     }
 
     .hero__content {
