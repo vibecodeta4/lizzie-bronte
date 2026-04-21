@@ -84,7 +84,9 @@
     .hero__overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(19,10,16,0.3) 0%, transparent 50%);
+      background:
+        linear-gradient(to right, rgba(19,10,16,0.3) 0%, transparent 50%),
+        linear-gradient(to top, rgba(19,10,16,0.72) 0%, transparent 40%);
     }
 
     .hero__content {
@@ -153,12 +155,15 @@
     }
 
     .hero__card {
-      margin-top: var(--space-10);
-      background: rgba(250,246,239,0.08);
+      position: absolute;
+      bottom: var(--space-8);
+      left: var(--space-8);
+      background: rgba(19,10,16,0.45);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(232,196,176,0.2);
+      border-left: 2px solid var(--color-emerald);
       padding: var(--space-5) var(--space-6);
-      display: inline-block;
+      z-index: 2;
       opacity: 0;
       animation: fadeIn 1s ease 1s forwards;
     }
@@ -1291,7 +1296,7 @@
       .hero__overlay { background: linear-gradient(to bottom, rgba(19,10,16,0.55) 0%, rgba(19,10,16,0) 45%); }
       .hero__left { padding: var(--space-10) var(--space-6) var(--space-12); justify-content: flex-start; }
       .hero__title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
-      .hero__card { display: inline-block; }
+      .hero__card { bottom: var(--space-6); left: var(--space-6); }
 
       /* Letter */
       .letter { padding-block: var(--space-16); }
@@ -1431,15 +1436,15 @@
             <a href="contact.html" class="btn btn-emerald">Book a Clarity Call</a>
             <a href="work-with-me.html" class="btn btn-ghost">Explore the Programme</a>
           </div>
-          <div class="hero__card" aria-hidden="true">
-            <p class="hero__card-label">Ph.D. Global Leadership</p>
-            <p class="hero__card-text">Creator of the VOICE Framework™</p>
-          </div>
         </div>
       </div>
       <div class="hero__right">
         <img src="images/about-photo.jpg" alt="Dr. Lizzie Bronte" class="hero__photo" />
         <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__card" aria-hidden="true">
+          <p class="hero__card-label">Ph.D. Global Leadership</p>
+          <p class="hero__card-text">Creator of the VOICE Framework™</p>
+        </div>
       </div>
     </section>
 
