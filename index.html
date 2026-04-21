@@ -85,8 +85,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to right, rgba(19,10,16,0.3) 0%, transparent 50%),
-        linear-gradient(to top, rgba(19,10,16,0.72) 0%, transparent 40%);
+        linear-gradient(to right, rgba(61,26,46,0.35) 0%, transparent 55%),
+        linear-gradient(to top, rgba(61,26,46,0.78) 0%, rgba(90,40,64,0.2) 45%, transparent 70%);
     }
 
     .hero__content {
@@ -158,9 +158,9 @@
       position: absolute;
       bottom: var(--space-8);
       left: var(--space-8);
-      background: rgba(19,10,16,0.45);
+      background: rgba(61,26,46,0.65);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(232,196,176,0.2);
+      border: 1px solid rgba(232,196,176,0.25);
       border-left: 2px solid var(--color-emerald);
       padding: var(--space-5) var(--space-6);
       z-index: 2;
@@ -1293,7 +1293,7 @@
       /* Hero — stack on mobile: photo top, content below */
       .hero { grid-template-columns: 1fr; min-height: unset; }
       .hero__right { height: 380px; order: -1; }
-      .hero__overlay { background: linear-gradient(to bottom, rgba(19,10,16,0.55) 0%, rgba(19,10,16,0) 45%); }
+      .hero__overlay { background: linear-gradient(to bottom, rgba(61,26,46,0.6) 0%, rgba(61,26,46,0) 45%), linear-gradient(to top, rgba(61,26,46,0.78) 0%, transparent 40%); }
       .hero__left { padding: var(--space-10) var(--space-6) var(--space-12); justify-content: flex-start; }
       .hero__title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
       .hero__card { bottom: var(--space-6); left: var(--space-6); }
