@@ -1,0 +1,13 @@
+timezone: "America/New_York"
+slot_duration_minutes: 20
+buffer_minutes: 10
+available_days:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+available_start: "09:00"
+available_end: "17:00"
+booking_window_days: 28
+booking_notification_email: "lizzie@bronteadvisory.com"

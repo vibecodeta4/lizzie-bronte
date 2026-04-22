@@ -64,6 +64,36 @@ collections:
           - { label: "Clarity Call Spaces Note", name: "clarity_call_spaces", widget: "string" }
 
   # ──────────────────────────────
+  # BOOKING AVAILABILITY
+  # ──────────────────────────────
+  - name: "availability"
+    label: "Booking Availability"
+    files:
+      - label: "Clarity Call Schedule"
+        name: "availability"
+        file: "_data/availability.yml"
+        fields:
+          - { label: "Timezone", name: "timezone", widget: "string", hint: "e.g. America/New_York, Europe/London, Australia/Sydney" }
+          - { label: "Call Duration (minutes)", name: "slot_duration_minutes", widget: "number", default: 20 }
+          - { label: "Buffer Between Calls (minutes)", name: "buffer_minutes", widget: "number", default: 10 }
+          - label: "Available Days"
+            name: "available_days"
+            widget: "select"
+            multiple: true
+            options:
+              - { label: "Monday", value: 1 }
+              - { label: "Tuesday", value: 2 }
+              - { label: "Wednesday", value: 3 }
+              - { label: "Thursday", value: 4 }
+              - { label: "Friday", value: 5 }
+              - { label: "Saturday", value: 6 }
+              - { label: "Sunday", value: 0 }
+          - { label: "Available From (HH:MM)", name: "available_start", widget: "string", hint: "e.g. 09:00" }
+          - { label: "Available Until (HH:MM)", name: "available_end", widget: "string", hint: "e.g. 17:00" }
+          - { label: "Booking Window (days ahead)", name: "booking_window_days", widget: "number", default: 28 }
+          - { label: "Notification Email", name: "booking_notification_email", widget: "string", hint: "Email that receives new booking alerts" }
+
+  # ──────────────────────────────
   # BLOG POSTS
   # ──────────────────────────────
   - name: "posts"

@@ -1,0 +1,351 @@
+---
+layout: default
+title: "Book a Clarity Call — Bronte Advisory"
+description: "Book a complimentary 20-minute Clarity Call with Dr. Lizzie Bronte — a private conversation to explore where you are and whether working together is the right fit."
+page_css: css/book.css
+active_nav: contact
+---
+
+<main>
+  <header class="page-hero book-hero" aria-label="Book a Clarity Call">
+    <div class="page-hero__inner">
+      <div>
+        <p class="eyebrow page-hero__eyebrow">Schedule</p>
+        <h1 class="page-hero__title">Book a <em>Clarity Call</em></h1>
+      </div>
+      <div class="page-hero__right">
+        A complimentary 20-minute conversation to explore where you are and whether working together is the right fit.
+      </div>
+    </div>
+  </header>
+
+  <section class="booking-section">
+    <div class="booking-section__inner">
+
+      <div class="booking-intro reveal">
+        <p class="eyebrow">Choose a Time</p>
+        <h2 class="booking-intro__title">Select a date &amp;<br /><em>time that suits you</em></h2>
+        <p class="booking-intro__body">All times shown in Eastern Time (ET). The call will be via Zoom — wherever you are in the world.</p>
+      </div>
+
+      <!-- Calendar navigation -->
+      <div class="calendar-nav" id="calendarNav" style="display:none;">
+        <button class="calendar-nav__btn" id="prevWeek" aria-label="Previous week" disabled>&#8592;</button>
+        <span class="calendar-nav__label" id="weekLabel"></span>
+        <button class="calendar-nav__btn" id="nextWeek" aria-label="Next week">&#8594;</button>
+      </div>
+
+      <!-- Calendar grid (rendered by JS) -->
+      <div id="calendarGrid"></div>
+
+      <!-- Booking form (hidden until slot selected) -->
+      <div class="booking-form-wrap" id="bookingFormWrap" style="display:none;" aria-live="polite">
+        <div class="booking-selected-slot">
+          <div class="booking-selected-slot__dot"></div>
+          <span class="booking-selected-slot__text" id="selectedSlotLabel"></span>
+          <button class="booking-selected-slot__change" id="changeSlotBtn" type="button">Change</button>
+        </div>
+        <p class="booking-form-title">Your details</p>
+        <form id="bookingForm" novalidate>
+          <div class="booking-form-grid">
+            <div class="booking-field">
+              <label class="booking-label" for="bk-fname">First Name <span aria-hidden="true">*</span></label>
+              <input class="booking-input" type="text" id="bk-fname" name="firstName" required autocomplete="given-name" />
+            </div>
+            <div class="booking-field">
+              <label class="booking-label" for="bk-lname">Last Name <span aria-hidden="true">*</span></label>
+              <input class="booking-input" type="text" id="bk-lname" name="lastName" required autocomplete="family-name" />
+            </div>
+            <div class="booking-field booking-field--full">
+              <label class="booking-label" for="bk-email">Email Address <span aria-hidden="true">*</span></label>
+              <input class="booking-input" type="email" id="bk-email" name="email" required autocomplete="email" />
+            </div>
+            <div class="booking-field booking-field--full">
+              <label class="booking-label" for="bk-role">Your Role / Industry</label>
+              <input class="booking-input" type="text" id="bk-role" name="role" placeholder="e.g. VP of Operations, Healthcare" autocomplete="organization-title" />
+            </div>
+            <div class="booking-field booking-field--full">
+              <label class="booking-label" for="bk-message">What brings you here?</label>
+              <textarea class="booking-textarea" id="bk-message" name="message" placeholder="What is present for you right now? What are you hoping this call will offer?"></textarea>
+            </div>
+          </div>
+          <div id="bookingErrorMsg" class="booking-error" role="alert"></div>
+          <div class="booking-submit-row">
+            <button type="submit" class="btn btn-emerald" id="bookingSubmitBtn">Confirm Booking</button>
+            <p class="booking-note">You will receive a confirmation email immediately.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success state (hidden until booked) -->
+      <div class="booking-success" id="bookingSuccess" style="display:none;" role="status" aria-live="polite">
+        <div class="booking-success__icon" aria-hidden="true">&#10003;</div>
+        <h2 class="booking-success__title">Your call<br /><em>is confirmed.</em></h2>
+        <p class="booking-success__slot" id="successSlotLabel"></p>
+        <p class="booking-success__body">Check your inbox for a confirmation email. Dr. Bronte will send you a Zoom link before the call. If you have any questions, simply reply to that email.</p>
+        <a href="/index.html" class="btn btn-primary">Return Home</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── State ──────────────────────────────────────────────────────
+  var slotsData = {};       // { 'YYYY-MM-DD': ['YYYY-MM-DDTHH:MM', ...] }
+  var timezone  = 'America/New_York';
+  var weekOffset = 0;       // 0 = first available week
+  var selectedSlot = null;
+  var firstAvailableMonday = null;
+
+  // ── DOM refs ───────────────────────────────────────────────────
+  var calendarNav    = document.getElementById('calendarNav');
+  var calendarGrid   = document.getElementById('calendarGrid');
+  var prevBtn        = document.getElementById('prevWeek');
+  var nextBtn        = document.getElementById('nextWeek');
+  var weekLabel      = document.getElementById('weekLabel');
+  var formWrap       = document.getElementById('bookingFormWrap');
+  var slotLabel      = document.getElementById('selectedSlotLabel');
+  var changeSlotBtn  = document.getElementById('changeSlotBtn');
+  var bookingForm    = document.getElementById('bookingForm');
+  var submitBtn      = document.getElementById('bookingSubmitBtn');
+  var errorMsg       = document.getElementById('bookingErrorMsg');
+  var successWrap    = document.getElementById('bookingSuccess');
+  var successLabel   = document.getElementById('successSlotLabel');
+
+  // ── Helpers ────────────────────────────────────────────────────
+  function getMondayOfWeek(date) {
+    var d = new Date(date);
+    var day = d.getDay();
+    var diff = (day === 0) ? -6 : 1 - day;
+    d.setDate(d.getDate() + diff);
+    d.setHours(0, 0, 0, 0);
+    return d;
+  }
+
+  function addDays(date, n) {
+    var d = new Date(date);
+    d.setDate(d.getDate() + n);
+    return d;
+  }
+
+  // "YYYY-MM-DD" from a Date
+  function toDateStr(date) {
+    var y = date.getFullYear();
+    var m = String(date.getMonth() + 1).padStart(2, '0');
+    var d = String(date.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + d;
+  }
+
+  // "Mon", "Tue" etc.
+  var DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // "10:00 AM ET" from slot key "YYYY-MM-DDTHH:MM"
+  function slotKeyToTime(slot) {
+    var timePart = slot.split('T')[1];
+    var parts = timePart.split(':');
+    var h = parseInt(parts[0], 10);
+    var m = parts[1];
+    var period = h >= 12 ? 'PM' : 'AM';
+    var displayH = h === 0 ? 12 : h > 12 ? h - 12 : h;
+    return displayH + ':' + m + ' ' + period + ' ET';
+  }
+
+  // Full readable label "Monday, 28 April · 10:00 AM ET"
+  function slotKeyToLabel(slot) {
+    var datePart = slot.split('T')[0];
+    var parts = datePart.split('-');
+    var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    var dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()];
+    return dayName + ', ' + d.getDate() + ' ' + MONTH_NAMES[d.getMonth()] + ' · ' + slotKeyToTime(slot);
+  }
+
+  // ── Fetch slots ────────────────────────────────────────────────
+  function fetchSlots() {
+    calendarGrid.innerHTML = '<p class="booking-state">Loading available times…</p>';
+
+    fetch('/api/slots')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.error) throw new Error(data.error);
+        slotsData = data.slots || {};
+        timezone  = data.timezone || 'America/New_York';
+
+        var dates = Object.keys(slotsData).sort();
+        if (dates.length === 0) {
+          calendarGrid.innerHTML = '<p class="booking-state">No availability at the moment. Please check back soon or <a href="/contact.html">contact us directly</a>.</p>';
+          return;
+        }
+
+        // Find the Monday of the first week that has slots
+        var firstDate = new Date(dates[0] + 'T12:00:00Z');
+        firstAvailableMonday = getMondayOfWeek(firstDate);
+        weekOffset = 0;
+        renderCalendar();
+        calendarNav.style.display = '';
+      })
+      .catch(function (err) {
+        calendarGrid.innerHTML = '<p class="booking-state booking-state--error">Unable to load available times. Please <a href="/contact.html">contact us directly</a> to book.</p>';
+      });
+  }
+
+  // ── Render calendar ────────────────────────────────────────────
+  function renderCalendar() {
+    var monday = addDays(firstAvailableMonday, weekOffset * 7);
+    var friday = addDays(monday, 4);
+
+    // Week label
+    if (monday.getMonth() === friday.getMonth()) {
+      weekLabel.textContent = MONTH_NAMES[monday.getMonth()] + ' ' + monday.getDate() + '–' + friday.getDate() + ', ' + friday.getFullYear();
+    } else {
+      weekLabel.textContent = MONTH_NAMES[monday.getMonth()] + ' ' + monday.getDate() + ' – ' + MONTH_NAMES[friday.getMonth()] + ' ' + friday.getDate() + ', ' + friday.getFullYear();
+    }
+
+    prevBtn.disabled = (weekOffset === 0);
+
+    // Build grid
+    var gridEl = document.createElement('div');
+    gridEl.className = 'calendar-grid';
+
+    for (var i = 0; i < 5; i++) {
+      var day = addDays(monday, i);
+      var dateStr = toDateStr(day);
+      var slots = slotsData[dateStr] || [];
+
+      var dayEl = document.createElement('div');
+      dayEl.className = 'calendar-day' + (slots.length === 0 ? ' calendar-day--empty' : '');
+
+      // Header
+      var headerEl = document.createElement('div');
+      headerEl.className = 'calendar-day__header';
+      headerEl.innerHTML =
+        '<p class="calendar-day__name">' + DAY_NAMES[day.getDay()] + '</p>' +
+        '<p class="calendar-day__date">' + day.getDate() + ' ' + MONTH_NAMES[day.getMonth()] + '</p>';
+      dayEl.appendChild(headerEl);
+
+      // Slots
+      var slotsEl = document.createElement('div');
+      slotsEl.className = 'calendar-day__slots';
+
+      if (slots.length === 0) {
+        var noneEl = document.createElement('p');
+        noneEl.className = 'calendar-day__none';
+        noneEl.textContent = 'No availability';
+        slotsEl.appendChild(noneEl);
+      } else {
+        slots.forEach(function (slotKey) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'slot-card' + (slotKey === selectedSlot ? ' slot-card--selected' : '');
+          btn.textContent = slotKeyToTime(slotKey);
+          btn.dataset.slot = slotKey;
+          btn.addEventListener('click', function () { selectSlot(slotKey); });
+          slotsEl.appendChild(btn);
+        });
+      }
+
+      dayEl.appendChild(slotsEl);
+      gridEl.appendChild(dayEl);
+    }
+
+    calendarGrid.innerHTML = '';
+    calendarGrid.appendChild(gridEl);
+  }
+
+  // ── Select slot ────────────────────────────────────────────────
+  function selectSlot(slotKey) {
+    selectedSlot = slotKey;
+    renderCalendar();
+
+    slotLabel.textContent = slotKeyToLabel(slotKey);
+    formWrap.style.display = '';
+    errorMsg.style.display = 'none';
+    errorMsg.textContent = '';
+
+    // Scroll to form
+    setTimeout(function () {
+      formWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
+
+  // ── Change slot button ─────────────────────────────────────────
+  changeSlotBtn.addEventListener('click', function () {
+    selectedSlot = null;
+    formWrap.style.display = 'none';
+    renderCalendar();
+    calendarGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // ── Week navigation ────────────────────────────────────────────
+  prevBtn.addEventListener('click', function () {
+    if (weekOffset > 0) { weekOffset--; renderCalendar(); }
+  });
+
+  nextBtn.addEventListener('click', function () {
+    weekOffset++;
+    renderCalendar();
+  });
+
+  // ── Form submission ────────────────────────────────────────────
+  bookingForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorMsg.style.display = 'none';
+    errorMsg.textContent = '';
+
+    var firstName = document.getElementById('bk-fname').value.trim();
+    var lastName  = document.getElementById('bk-lname').value.trim();
+    var email     = document.getElementById('bk-email').value.trim();
+    var role      = document.getElementById('bk-role').value.trim();
+    var message   = document.getElementById('bk-message').value.trim();
+
+    if (!firstName || !lastName || !email) {
+      showError('Please fill in your first name, last name, and email address.');
+      return;
+    }
+    if (!selectedSlot) {
+      showError('Please select a time slot above.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Confirming…';
+
+    fetch('/api/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slot: selectedSlot, firstName: firstName, lastName: lastName, email: email, role: role, message: message })
+    })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+      .then(function (res) {
+        if (!res.ok) {
+          throw new Error(res.data.error || 'Something went wrong. Please try again.');
+        }
+        // Show success
+        formWrap.style.display = 'none';
+        calendarNav.style.display = 'none';
+        calendarGrid.style.display = 'none';
+        successLabel.textContent = res.data.slotDisplay || slotKeyToLabel(selectedSlot);
+        successWrap.style.display = '';
+        successWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      })
+      .catch(function (err) {
+        showError(err.message);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Confirm Booking';
+      });
+  });
+
+  function showError(msg) {
+    errorMsg.textContent = msg;
+    errorMsg.style.display = 'block';
+    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ── Init ───────────────────────────────────────────────────────
+  fetchSlots();
+})();
+</script>

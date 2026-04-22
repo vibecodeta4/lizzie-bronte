@@ -29,23 +29,25 @@ active_nav: contact
         </div>
       </div>
       <div class="contact-form reveal">
-        <form onsubmit="return false;">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none;"><label>Don't fill: <input name="bot-field" /></label></p>
           <div class="form-row">
-            <div class="form-group"><label class="form-label" for="fname">First Name</label><input class="form-input" type="text" id="fname" placeholder="Your first name" /></div>
-            <div class="form-group"><label class="form-label" for="lname">Last Name</label><input class="form-input" type="text" id="lname" placeholder="Your last name" /></div>
+            <div class="form-group"><label class="form-label" for="fname">First Name</label><input class="form-input" type="text" id="fname" name="first-name" required placeholder="Your first name" /></div>
+            <div class="form-group"><label class="form-label" for="lname">Last Name</label><input class="form-input" type="text" id="lname" name="last-name" required placeholder="Your last name" /></div>
           </div>
-          <div class="form-group"><label class="form-label" for="email">Email Address</label><input class="form-input" type="email" id="email" placeholder="your@email.com" /></div>
-          <div class="form-group"><label class="form-label" for="role">Your Role / Industry</label><input class="form-input" type="text" id="role" placeholder="e.g. VP of Operations, Healthcare" /></div>
+          <div class="form-group"><label class="form-label" for="email">Email Address</label><input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com" /></div>
+          <div class="form-group"><label class="form-label" for="role">Your Role / Industry</label><input class="form-input" type="text" id="role" name="role" placeholder="e.g. VP of Operations, Healthcare" /></div>
           <div class="form-group">
             <label class="form-label" for="interest">What brings you here?</label>
-            <select class="form-select" id="interest">
+            <select class="form-select" id="interest" name="interest">
               <option value="">Select an option</option>
               <option>The Authority Advisory (1:1 Programme)</option>
               <option>Speaking or Workshop Inquiry</option>
               <option>General Inquiry</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label" for="message">Tell me a little about where you are</label><textarea class="form-textarea" id="message" placeholder="What is bringing you here? What feels most present for you right now?"></textarea></div>
+          <div class="form-group"><label class="form-label" for="message">Tell me a little about where you are</label><textarea class="form-textarea" id="message" name="message" placeholder="What is bringing you here? What feels most present for you right now?"></textarea></div>
           <button type="submit" class="btn btn-emerald" style="width:100%;justify-content:center;padding-block:var(--space-5);">Submit Application</button>
           <p style="margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;letter-spacing:var(--tracking-wide);">You will hear back within 48 hours.</p>
         </form>
