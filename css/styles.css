@@ -9,23 +9,23 @@
    CSS VARIABLES
 ──────────────────────────────────────────────────────────────── */
 :root {
-  /* Warm Authority Palette */
-  --color-deep-purple:     #3D1A2E;   /* warm wine / main brand dark */
-  --color-purple-dark:     #1E0F18;   /* very dark — hover states only */
-  --color-purple-mid:      #5A2840;   /* mid burgundy */
-  --color-soft-lavender:   #E8C4B0;   /* warm blush (replaces cold lavender) */
-  --color-ivory:           #FAF6EF;   /* warm cream */
-  --color-white:           #FDFAF7;   /* warm white */
-  --color-emerald:         #B87840;   /* warm amber (replaces cold green) */
-  --color-emerald-dark:    #8A5520;   /* dark amber */
-  --color-emerald-light:   #F5E8D0;   /* light amber tint */
-  --color-sage:            #8A9C85;   /* warm sage */
-  --color-warm-blush:      #F2E8E2;   /* section background blush */
-  --color-text-primary:    #1A0E14;   /* deep warm near-black */
-  --color-text-secondary:  #4A3040;   /* warm dark brown */
-  --color-text-muted:      #8C7880;   /* warm muted */
-  --color-border:          #E0D4CC;   /* warm border */
-  --color-border-light:    #EDE6E0;   /* light warm border */
+  /* Brand Palette */
+  --color-deep-purple:     #1F6F8B;   /* dark teal — primary brand dark */
+  --color-purple-dark:     #134F65;   /* deeper teal — hover states only */
+  --color-purple-mid:      #7B4289;   /* purple — secondary dark */
+  --color-soft-lavender:   #D8A6B3;   /* rose pink — soft accent */
+  --color-ivory:           #EFE6E8;   /* light blush — section backgrounds */
+  --color-white:           #FAF8FB;   /* near white */
+  --color-emerald:         #3DBCC4;   /* bright teal — CTA / accent */
+  --color-emerald-dark:    #2A96A0;   /* dark teal — hover */
+  --color-emerald-light:   #C5EDEF;   /* light teal tint */
+  --color-sage:            #7B9EA8;   /* muted teal */
+  --color-warm-blush:      #F5EDF0;   /* very light blush — section bg */
+  --color-text-primary:    #0D3340;   /* deep dark teal text */
+  --color-text-secondary:  #2D5060;   /* medium teal text */
+  --color-text-muted:      #6B8A94;   /* muted teal */
+  --color-border:          #C8B4BA;   /* rose-toned border */
+  --color-border-light:    #E4D8DC;   /* light border */
 
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -79,10 +79,10 @@
   --container-wide: 1400px;
 
   /* Shadows — warm toned */
-  --shadow-sm:  0 1px 3px rgba(30,15,24,0.06), 0 1px 2px rgba(30,15,24,0.04);
-  --shadow-md:  0 4px 16px rgba(30,15,24,0.09), 0 2px 6px rgba(30,15,24,0.05);
-  --shadow-lg:  0 12px 40px rgba(30,15,24,0.13), 0 4px 12px rgba(30,15,24,0.07);
-  --shadow-xl:  0 24px 64px rgba(30,15,24,0.18);
+  --shadow-sm:  0 1px 3px rgba(13,51,64,0.06), 0 1px 2px rgba(13,51,64,0.04);
+  --shadow-md:  0 4px 16px rgba(13,51,64,0.09), 0 2px 6px rgba(13,51,64,0.05);
+  --shadow-lg:  0 12px 40px rgba(13,51,64,0.13), 0 4px 12px rgba(13,51,64,0.07);
+  --shadow-xl:  0 24px 64px rgba(13,51,64,0.18);
 
   /* Transitions */
   --transition-fast:   150ms ease;
