@@ -1,6 +1,4 @@
 /* ── BOOKING PAGE ── */
-.book-hero { background: linear-gradient(150deg, #7B4289 0%, var(--color-purple-mid) 45%, var(--color-deep-purple) 100%); }
-
 .booking-section {
   background-color: var(--color-ivory);
   padding-block: var(--space-16);
