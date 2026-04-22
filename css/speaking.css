@@ -6,8 +6,8 @@
 .page-hero__title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); font-weight: var(--weight-light); color: var(--color-white); line-height: 1.0; letter-spacing: var(--tracking-tight); opacity: 0; animation: fadeUp 0.7s ease 0.25s forwards; }
 .page-hero__title em { font-style: italic; color: var(--color-soft-lavender); display: block; }
 .page-hero__right { opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards; font-family: var(--font-display); font-style: italic; font-size: var(--text-xl); font-weight: var(--weight-light); color: rgba(255,255,255,0.55); line-height: var(--leading-relaxed); border-left: 2px solid var(--color-emerald); padding-left: var(--space-6); margin-top: var(--space-8); }
-.page-hero__photo-wrap { opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; max-height: 520px; }
-.page-hero__photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.page-hero__photo-wrap { opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards; display: flex; align-items: center; justify-content: center; }
+.page-hero__photo { width: 100%; max-height: 480px; object-fit: contain; object-position: center center; display: block; }
 
 .speaking-intro { background-color: var(--color-ivory); padding-block: var(--space-24); }
 .speaking-intro__inner { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--space-8); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-20); align-items: center; }
