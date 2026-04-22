@@ -6,7 +6,19 @@
 .page-hero__title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); font-weight: var(--weight-light); color: var(--color-white); line-height: 1.0; letter-spacing: var(--tracking-tight); opacity: 0; animation: fadeUp 0.7s ease 0.25s forwards; }
 .page-hero__title em { font-style: italic; color: var(--color-soft-lavender); display: block; }
 .page-hero__right { opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards; font-family: var(--font-display); font-style: italic; font-size: var(--text-xl); font-weight: var(--weight-light); color: rgba(255,255,255,0.55); line-height: var(--leading-relaxed); border-left: 2px solid var(--color-emerald); padding-left: var(--space-6); margin-top: var(--space-8); }
-.speaking-photo { width: 100%; height: auto; display: block; }
+.speaking-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%, black 6%, black 94%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    linear-gradient(to right,  transparent 0%, black 6%, black 94%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 4%, black 96%, transparent 100%);
+  mask-composite: intersect;
+}
 .speaking-stats { padding-top: var(--space-12); padding-bottom: var(--space-4); }
 .speaking-stats .speaking-intro__inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); align-items: stretch; }
 
