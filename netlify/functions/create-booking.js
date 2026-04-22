@@ -84,28 +84,29 @@ exports.handler = async function (event) {
   }
 
   try {
-    const store = getStore({ name: 'bookings', consistency: 'strong' });
-
-    // Atomic check-and-set: if the key already exists the slot is taken
-    const existing = await store.get(slot);
-    if (existing) {
-      return {
-        statusCode: 409,
-        headers,
-        body: JSON.stringify({ error: 'This slot has just been taken. Please choose another time.' }),
-      };
+    // Check for double-booking — best effort; proceed if Blobs unavailable
+    try {
+      const store = getStore({ name: 'bookings', consistency: 'strong' });
+      const existing = await store.get(slot);
+      if (existing) {
+        return {
+          statusCode: 409,
+          headers,
+          body: JSON.stringify({ error: 'This slot has just been taken. Please choose another time.' }),
+        };
+      }
+      const bookingData = JSON.stringify({
+        firstName, lastName, email,
+        role: role || '',
+        message: message || '',
+        bookedAt: new Date().toISOString(),
+      });
+      await store.set(slot, bookingData);
+    } catch (blobErr) {
+      console.warn('Blobs unavailable — proceeding without duplicate check:', blobErr.message);
     }
 
     const av = loadAvailability();
-    const bookingData = {
-      firstName,
-      lastName,
-      email,
-      role: role || '',
-      message: message || '',
-      bookedAt: new Date().toISOString(),
-    };
-    await store.set(slot, JSON.stringify(bookingData));
 
     const notifyEmail =
       av.booking_notification_email || process.env.BOOKING_NOTIFICATION_EMAIL;
