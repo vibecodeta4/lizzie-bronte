@@ -1,0 +1,27 @@
+<nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="/index.html" class="nav__logo" aria-label="Bronte Advisory Home">
+      <img src="/images/Logo_Full.png" alt="Bronte Advisory" />
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="/about.html" class="nav__link"{% if active_nav == 'about' %} aria-current="page"{% endif %}>About</a></li>
+      <li><a href="/work-with-me.html" class="nav__link"{% if active_nav == 'work-with-me' %} aria-current="page"{% endif %}>Work With Me</a></li>
+      <li><a href="/speaking.html" class="nav__link"{% if active_nav == 'speaking' %} aria-current="page"{% endif %}>Speaking</a></li>
+      <li><a href="/contact.html" class="nav__link"{% if active_nav == 'contact' %} aria-current="page"{% endif %}>Contact</a></li>
+    </ul>
+    <a href="/contact.html" class="btn btn-primary nav__cta">Book a Clarity Call</a>
+    <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <button id="mobileClose" aria-label="Close menu" style="position:absolute;top:var(--space-6);right:var(--space-6);background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--color-deep-purple);">&#x2715;</button>
+  <ul role="list" style="display:flex;flex-direction:column;align-items:center;gap:var(--space-8);">
+    <li><a href="/about.html" class="nav__link">About</a></li>
+    <li><a href="/work-with-me.html" class="nav__link">Work With Me</a></li>
+    <li><a href="/speaking.html" class="nav__link">Speaking</a></li>
+    <li><a href="/contact.html" class="nav__link">Contact</a></li>
+  </ul>
+  <a href="/contact.html" class="btn btn-primary" style="margin-top:var(--space-8);">Book a Clarity Call</a>
+</div>

@@ -1,0 +1,80 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+
+  # ──────────────────────────────
+  # TESTIMONIALS
+  # ──────────────────────────────
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - label: "All Testimonials"
+        name: "testimonials"
+        file: "_data/testimonials.yml"
+        fields:
+          - label: "Featured Testimonial"
+            name: "featured"
+            widget: "object"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+          - label: "Testimonial Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+
+  # ──────────────────────────────
+  # PRICING & PROGRAMME
+  # ──────────────────────────────
+  - name: "pricing"
+    label: "Pricing"
+    files:
+      - label: "Programme Pricing"
+        name: "pricing"
+        file: "_data/pricing.yml"
+        fields:
+          - { label: "Monthly Amount", name: "monthly_amount", widget: "string", hint: "e.g. $1,250" }
+          - { label: "Monthly Period Label", name: "monthly_period", widget: "string", hint: "e.g. per month × 3" }
+          - { label: "Full Payment Amount", name: "full_amount", widget: "string", hint: "e.g. $2,999" }
+          - { label: "Full Payment Label", name: "full_period", widget: "string", hint: "e.g. paid in full" }
+          - { label: "Programme Duration", name: "programme_duration", widget: "string" }
+
+  # ──────────────────────────────
+  # SITE SETTINGS
+  # ──────────────────────────────
+  - name: "settings"
+    label: "Settings"
+    files:
+      - label: "Site Settings"
+        name: "settings"
+        file: "_data/settings.yml"
+        fields:
+          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string" }
+          - { label: "Contact Email", name: "contact_email", widget: "string" }
+          - { label: "Clarity Call Spaces Note", name: "clarity_call_spaces", widget: "string" }
+
+  # ──────────────────────────────
+  # BLOG POSTS
+  # ──────────────────────────────
+  - name: "posts"
+    label: "Articles"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Tag / Category", name: "tag", widget: "string", hint: "e.g. Leadership, Self-Trust, Identity" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

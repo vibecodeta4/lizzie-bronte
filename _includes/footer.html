@@ -1,0 +1,36 @@
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo">
+          <img src="/images/Full_Logo_White.png" alt="Bronte Advisory" />
+        </div>
+        <p class="footer__tagline">Inner authority for<br />high-performing women.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <p class="footer__nav-title">Navigate</p>
+        <ul class="footer__nav" role="list">
+          <li><a href="/about.html">About Dr. Lizzie Bronte</a></li>
+          <li><a href="/work-with-me.html">Work With Me</a></li>
+          <li><a href="/speaking.html">Speaking &amp; Workshops</a></li>
+          <li><a href="/contact.html">Contact &amp; Apply</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer__nav-title">Connect</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="{{ settings.linkedin_url | default: '#' }}" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="{{ settings.instagram_url | default: '#' }}" aria-label="Instagram" title="Instagram">ig</a>
+        </div>
+        <p style="margin-top:var(--space-8);font-size:var(--text-sm);color:rgba(255,255,255,0.4);line-height:var(--leading-relaxed);margin-bottom:var(--space-3);">
+          Clarity Calls open monthly.<br />Spaces are intentionally limited.
+        </p>
+        <a href="/contact.html" class="btn btn-emerald" style="font-size:var(--text-xs);">Book a Clarity Call</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&#169; 2025 Bronte Advisory. Dr. Lizzie Bronte. All rights reserved.</p>
+      <p>Designed with intention.</p>
+    </div>
+  </div>
+</footer>
