@@ -1,5 +1,9 @@
 /* ── NAV — transparent over hero ── */
 .nav { background-color: transparent; }
+@media (max-width: 768px) {
+  .nav { background-color: var(--color-deep-purple); }
+  .nav.scrolled { background-color: var(--color-deep-purple); }
+}
 .nav .nav__link { color: rgba(255,255,255,0.85); }
 .nav .nav__link:hover { color: var(--color-white); }
 .nav .nav__logo img { filter: brightness(0) invert(1); drop-shadow(0 1px 6px rgba(0,0,0,0.4)); }
