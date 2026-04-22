@@ -59,11 +59,14 @@ exports.handler = async function (event) {
 
   try {
     const av = loadAvailability();
-    const store = getStore('bookings');
-
-    // Fetch all booked slot keys in one call
-    const listed = await store.list();
-    const booked = new Set(listed.blobs.map((b) => b.key));
+    let booked = new Set();
+    try {
+      const store = getStore({ name: 'bookings', consistency: 'strong' });
+      const listed = await store.list();
+      booked = new Set(listed.blobs.map((b) => b.key));
+    } catch {
+      // Blobs unavailable (empty store or missing context) — all slots are open
+    }
 
     const now = new Date();
     const result = {};

@@ -84,7 +84,7 @@ exports.handler = async function (event) {
   }
 
   try {
-    const store = getStore('bookings');
+    const store = getStore({ name: 'bookings', consistency: 'strong' });
 
     // Atomic check-and-set: if the key already exists the slot is taken
     const existing = await store.get(slot);
