@@ -4,6 +4,12 @@ module.exports = function(eleventyConfig) {
   // Support YAML data files (keeps existing _data/*.yml files unchanged)
   eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
 
+  // LiquidJS doesn't have a built-in limit filter
+  eleventyConfig.addFilter("limit", (array, count) => {
+    if (!Array.isArray(array)) return array;
+    return array.slice(0, Number(count));
+  });
+
   // Pass through static assets untouched
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("images");
