@@ -22,9 +22,6 @@
     linear-gradient(to bottom, transparent 0%, black 4%, black 96%, transparent 100%);
   mask-composite: intersect;
 }
-.contact-photo-caption { padding: var(--space-5) var(--space-6); background-color: var(--color-deep-purple); }
-.contact-photo-caption__name { font-family: var(--font-display); font-size: var(--text-lg); font-weight: var(--weight-light); color: var(--color-white); letter-spacing: var(--tracking-wide); margin-bottom: var(--space-1); }
-.contact-photo-caption__tagline { font-family: var(--font-display); font-style: italic; font-size: var(--text-base); font-weight: var(--weight-light); color: var(--color-soft-lavender); line-height: var(--leading-snug); }
 .contact-info__title em { font-style: italic; }
 .contact-info__body { font-size: var(--text-base); font-weight: var(--weight-light); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin-bottom: var(--space-8); }
 .contact-info__detail { display: flex; align-items: flex-start; gap: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-sm); color: var(--color-text-secondary); }
