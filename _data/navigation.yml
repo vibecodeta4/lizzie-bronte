@@ -1,0 +1,33 @@
+nav_cta_label: "Book a Clarity Call"
+nav_cta_url: "/book.html"
+nav_links:
+  - id: about
+    label: "About"
+    url: "/about.html"
+  - id: work-with-me
+    label: "Work With Me"
+    url: "/work-with-me.html"
+  - id: speaking
+    label: "Speaking"
+    url: "/speaking.html"
+  - id: contact
+    label: "Contact"
+    url: "/contact.html"
+
+footer_tagline: "Inner authority for high-performing women."
+footer_nav_title: "Navigate"
+footer_nav_links:
+  - label: "About Dr. Lizzie Bronte"
+    url: "/about.html"
+  - label: "Work With Me"
+    url: "/work-with-me.html"
+  - label: "Speaking & Workshops"
+    url: "/speaking.html"
+  - label: "Contact & Apply"
+    url: "/contact.html"
+footer_connect_title: "Connect"
+footer_spaces_note: "Clarity Calls open monthly. Spaces are intentionally limited."
+footer_cta_label: "Book a Clarity Call"
+footer_cta_url: "/book.html"
+footer_copyright: "© 2025 Bronte Advisory. Dr. Lizzie Bronte. All rights reserved."
+footer_credit: "Designed with intention."

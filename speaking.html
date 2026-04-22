@@ -10,77 +10,73 @@ active_nav: speaking
   <header class="page-hero">
     <div class="page-hero__inner">
       <div>
-        <p class="eyebrow page-hero__eyebrow">Speaking &amp; Workshops</p>
-        <h1 class="page-hero__title">Keynotes that<br /><em>move rooms.</em></h1>
+        <p class="eyebrow page-hero__eyebrow">{{ speaking.hero_eyebrow }}</p>
+        <h1 class="page-hero__title">{{ speaking.hero_title }}<br /><em>{{ speaking.hero_title_em }}</em></h1>
       </div>
-      <p class="page-hero__right">Research-grounded talks on authority, imposter syndrome, and leadership identity — for the women in your organization who are ready to stop shrinking.</p>
+      <p class="page-hero__right">{{ speaking.hero_subtitle }}</p>
     </div>
   </header>
   <section class="speaking-intro">
     <div class="speaking-intro__inner">
       <div class="reveal">
-        <p class="eyebrow">Dr. Bronte as a Speaker</p>
-        <h2 class="speaking-intro__title">A keynote that <em>stays with you</em></h2>
-        <p class="speaking-intro__body">Dr. Lizzie Bronte brings over a decade of research and advisory experience to every stage. Her talks are not motivational speeches — they are research-grounded, intellectually rigorous, and deeply practical for the high-performing women in your organization.</p>
-        <p class="speaking-intro__body">She speaks at corporate leadership retreats, women in leadership conferences, DEI events, and executive development programs — anywhere the conversation is about authority, identity, and what it means to lead without performing.</p>
-        <a href="/contact.html" class="btn btn-primary" style="margin-top:var(--space-4);">Inquire About Speaking</a>
+        <p class="eyebrow">{{ speaking.intro_eyebrow }}</p>
+        <h2 class="speaking-intro__title">{{ speaking.intro_title }} <em>{{ speaking.intro_title_em }}</em></h2>
+        <p class="speaking-intro__body">{{ speaking.intro_body_1 }}</p>
+        <p class="speaking-intro__body">{{ speaking.intro_body_2 }}</p>
+        <a href="{{ speaking.intro_cta_url }}" class="btn btn-primary" style="margin-top:var(--space-4);">{{ speaking.intro_cta_label }}</a>
       </div>
       <div class="speaking-intro__right reveal">
-        <img src="/images/Speaker.png.jpeg" alt="Dr. Lizzie Bronte speaking on stage" class="speaking-photo" />
+        <img src="{{ speaking.speaker_photo }}" alt="Dr. Lizzie Bronte speaking on stage" class="speaking-photo" />
       </div>
     </div>
     <div class="speaking-stats reveal">
       <div class="speaking-intro__inner" style="padding-top:0;">
-        <div class="speaking-intro__stat"><p class="speaking-intro__stat-title">Keynotes &amp; Conference Talks</p><p class="speaking-intro__stat-body">45–90 minutes. Tailored to your audience, theme, and outcomes.</p></div>
-        <div class="speaking-intro__stat"><p class="speaking-intro__stat-title">Half-Day Workshops</p><p class="speaking-intro__stat-body">Deep, interactive work on authority, communication, and the VOICE Framework.</p></div>
-        <div class="speaking-intro__stat"><p class="speaking-intro__stat-title">Corporate Leadership Programs</p><p class="speaking-intro__stat-body">Multi-session programs for women in leadership cohorts within organizations.</p></div>
-        <div class="speaking-intro__stat"><p class="speaking-intro__stat-title">Panels &amp; Fireside Chats</p><p class="speaking-intro__stat-body">Candid, substantive conversations on leadership, identity, and imposter syndrome.</p></div>
+        {% for stat in speaking.format_stats %}
+        <div class="speaking-intro__stat"><p class="speaking-intro__stat-title">{{ stat.title }}</p><p class="speaking-intro__stat-body">{{ stat.body }}</p></div>
+        {% endfor %}
       </div>
     </div>
   </section>
   <section class="topics">
     <div class="topics__inner">
       <div class="topics__header reveal">
-        <p class="eyebrow">Signature Topics</p>
-        <h2>What Dr. Bronte <em>speaks on</em></h2>
+        <p class="eyebrow">{{ speaking.topics_eyebrow }}</p>
+        <h2>{{ speaking.topics_title }} <em>{{ speaking.topics_title_em }}</em></h2>
       </div>
       <div class="topics__grid">
-        <article class="topic-card reveal"><p class="topic-card__tag">Keynote</p><h3 class="topic-card__title">Owning the Room: Authority Beyond Confidence</h3><p class="topic-card__body">Why confidence is not the goal — and what grounded authority actually looks like for high-performing women in modern organizations.</p></article>
-        <article class="topic-card reveal"><p class="topic-card__tag">Keynote</p><h3 class="topic-card__title">The Imposter Myth: What Research Actually Says</h3><p class="topic-card__body">A research-grounded talk that reframes imposter syndrome — from individual pathology to systemic pattern — and offers a more useful response.</p></article>
-        <article class="topic-card reveal"><p class="topic-card__tag">Workshop</p><h3 class="topic-card__title">The VOICE Framework: Five Dimensions of Authority</h3><p class="topic-card__body">An interactive workshop introducing the VOICE Framework and how participants can apply each dimension to their own leadership contexts.</p></article>
-        <article class="topic-card reveal"><p class="topic-card__tag">Keynote</p><h3 class="topic-card__title">Unseen No More: Visibility, Courage, and Being Fully Seen</h3><p class="topic-card__body">Drawing on her book and advocacy work, Dr. Bronte explores what it means to step fully forward — in leadership and in life.</p></article>
-        <article class="topic-card reveal"><p class="topic-card__tag">Workshop</p><h3 class="topic-card__title">Leading Under Pressure: Decisions Without Doubt</h3><p class="topic-card__body">Practical tools for women who are ready to break the cycle of second-guessing and lead from a place of conviction rather than fear.</p></article>
-        <article class="topic-card reveal"><p class="topic-card__tag">Panel / Fireside</p><h3 class="topic-card__title">The Identity of Leadership: Custom Topic</h3><p class="topic-card__body">Dr. Bronte tailors every engagement to your organization, audience, and outcomes. Contact her team to discuss your specific brief.</p></article>
+        {% for topic in speaking.topics %}
+        <article class="topic-card reveal"><p class="topic-card__tag">{{ topic.tag }}</p><h3 class="topic-card__title">{{ topic.title }}</h3><p class="topic-card__body">{{ topic.body }}</p></article>
+        {% endfor %}
       </div>
     </div>
   </section>
   <section class="booking">
     <div class="booking__inner">
       <div class="booking__content reveal">
-        <p class="eyebrow">Book Dr. Bronte</p>
-        <h2 class="booking__title">Bring this work <em>to your organization</em></h2>
-        <p class="booking__body">Every speaking engagement is tailored to your audience, event, and outcomes. Dr. Bronte works closely with event organizers and L&amp;D teams to ensure the experience is exactly right.</p>
+        <p class="eyebrow">{{ speaking.booking_eyebrow }}</p>
+        <h2 class="booking__title">{{ speaking.booking_title }} <em>{{ speaking.booking_title_em }}</em></h2>
+        <p class="booking__body">{{ speaking.booking_body }}</p>
         <div class="booking__formats">
-          <div class="booking__format"><div class="booking__format-dot"></div><div><p class="booking__format-title">Corporate &amp; Professional Events</p><p class="booking__format-body">Leadership retreats, women in leadership days, D&amp;I summits</p></div></div>
-          <div class="booking__format"><div class="booking__format-dot"></div><div><p class="booking__format-title">Conferences &amp; External Events</p><p class="booking__format-body">Industry conferences, professional associations, public forums</p></div></div>
-          <div class="booking__format"><div class="booking__format-dot"></div><div><p class="booking__format-title">Coaching &amp; Development Programs</p><p class="booking__format-body">Internal leadership cohorts, executive development, L&amp;D series</p></div></div>
+          {% for fmt in speaking.booking_formats %}
+          <div class="booking__format"><div class="booking__format-dot"></div><div><p class="booking__format-title">{{ fmt.title }}</p><p class="booking__format-body">{{ fmt.body }}</p></div></div>
+          {% endfor %}
         </div>
-        <a href="/contact.html" class="btn btn-primary">Submit a Speaking Inquiry</a>
+        <a href="{{ speaking.booking_cta_url }}" class="btn btn-primary">{{ speaking.booking_cta_label }}</a>
       </div>
       <div class="booking__testimonial reveal">
-        <blockquote>"Dr. Bronte has an extraordinary ability to speak to the experience of high-performing women in a way that is both intellectually rigorous and personally resonant. Our leadership team left with real tools — not just inspiration."</blockquote>
-        <cite>— Event Organizer, Corporate Leadership Summit</cite>
+        <blockquote>"{{ speaking.booking_testimonial_quote }}"</blockquote>
+        <cite>{{ speaking.booking_testimonial_attr }}</cite>
       </div>
     </div>
   </section>
   <section class="spk-cta">
     <div class="spk-cta__inner reveal">
-      <p class="eyebrow">Inquire Today</p>
-      <h2 class="spk-cta__title">Book Dr. Bronte<br />for your <em>next event</em></h2>
-      <p class="spk-cta__body">Speaking inquiries are handled directly. Get in touch to discuss availability, fees, and how the engagement can be shaped to your specific outcomes.</p>
+      <p class="eyebrow">{{ speaking.cta_eyebrow }}</p>
+      <h2 class="spk-cta__title">{{ speaking.cta_title }}<br /><em>{{ speaking.cta_title_em }}</em></h2>
+      <p class="spk-cta__body">{{ speaking.cta_body }}</p>
       <div class="spk-cta__ctas">
-        <a href="/contact.html" class="btn btn-emerald">Submit a Speaking Inquiry</a>
-        <a href="/about.html" class="btn btn-ghost">Learn More About Dr. Bronte</a>
+        <a href="{{ speaking.cta_primary_url }}" class="btn btn-emerald">{{ speaking.cta_primary_label }}</a>
+        <a href="{{ speaking.cta_secondary_url }}" class="btn btn-ghost">{{ speaking.cta_secondary_label }}</a>
       </div>
     </div>
   </section>

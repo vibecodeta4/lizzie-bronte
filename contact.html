@@ -9,14 +9,14 @@ active_nav: contact
 <main>
   <header class="page-hero">
     <div class="page-hero__inner">
-      <h1 class="page-hero__title">Get in <em>Touch</em></h1>
+      <h1 class="page-hero__title">{{ contact.hero_title }} <em>{{ contact.hero_title_em }}</em></h1>
     </div>
   </header>
   <section class="contact-section">
     <div class="contact-section__inner">
       <div class="contact-info reveal">
-        <img src="/images/Contact Call_3_photo.png" alt="Dr. Lizzie Bronte on a clarity call" class="contact-photo" />
-        <h2 class="contact-info__title" style="margin-top:var(--space-6);margin-bottom:0;"><em>Unlocking women's inner authority for confident, authentic leadership.</em></h2>
+        <img src="{{ contact.contact_photo }}" alt="Dr. Lizzie Bronte on a clarity call" class="contact-photo" />
+        <h2 class="contact-info__title" style="margin-top:var(--space-6);margin-bottom:0;"><em>{{ contact.tagline }}</em></h2>
       </div>
       <div class="contact-form reveal">
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -38,8 +38,8 @@ active_nav: contact
             </select>
           </div>
           <div class="form-group"><label class="form-label" for="message">Tell me a little about where you are</label><textarea class="form-textarea" id="message" name="message" placeholder="What is bringing you here? What feels most present for you right now?"></textarea></div>
-          <button type="submit" class="btn btn-emerald" style="width:100%;justify-content:center;padding-block:var(--space-5);">Submit Application</button>
-          <p style="margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;letter-spacing:var(--tracking-wide);">You will hear back within 48 hours.</p>
+          <button type="submit" class="btn btn-emerald" style="width:100%;justify-content:center;padding-block:var(--space-5);">{{ contact.form_submit_label }}</button>
+          <p style="margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;letter-spacing:var(--tracking-wide);">{{ contact.form_response_note }}</p>
         </form>
       </div>
     </div>

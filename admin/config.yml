@@ -108,3 +108,363 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  # ──────────────────────────────
+  # NAVIGATION & FOOTER
+  # ──────────────────────────────
+  - name: "navigation"
+    label: "Navigation & Footer"
+    files:
+      - label: "Navigation & Footer"
+        name: "navigation"
+        file: "_data/navigation.yml"
+        fields:
+          - { label: "Nav CTA Button Label", name: "nav_cta_label", widget: "string" }
+          - { label: "Nav CTA Button URL", name: "nav_cta_url", widget: "string" }
+          - label: "Nav Links"
+            name: "nav_links"
+            widget: "list"
+            fields:
+              - { label: "ID (do not change)", name: "id", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Footer Tagline", name: "footer_tagline", widget: "string" }
+          - { label: "Footer Nav Section Title", name: "footer_nav_title", widget: "string" }
+          - label: "Footer Nav Links"
+            name: "footer_nav_links"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Footer Connect Section Title", name: "footer_connect_title", widget: "string" }
+          - { label: "Footer Spaces Note", name: "footer_spaces_note", widget: "text" }
+          - { label: "Footer CTA Button Label", name: "footer_cta_label", widget: "string" }
+          - { label: "Footer CTA Button URL", name: "footer_cta_url", widget: "string" }
+          - { label: "Footer Copyright", name: "footer_copyright", widget: "string" }
+          - { label: "Footer Credit Line", name: "footer_credit", widget: "string" }
+
+  # ──────────────────────────────
+  # HOME PAGE
+  # ──────────────────────────────
+  - name: "home"
+    label: "Home Page"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "_data/home.yml"
+        fields:
+          - { label: "HERO — Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "HERO — Heading Line 1", name: "hero_title", widget: "string" }
+          - { label: "HERO — Heading Line 2 (italic)", name: "hero_title_em", widget: "string" }
+          - { label: "HERO — Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "HERO — Primary Button Label", name: "hero_cta_primary_label", widget: "string" }
+          - { label: "HERO — Primary Button URL", name: "hero_cta_primary_url", widget: "string" }
+          - { label: "HERO — Secondary Button Label", name: "hero_cta_secondary_label", widget: "string" }
+          - { label: "HERO — Secondary Button URL", name: "hero_cta_secondary_url", widget: "string" }
+          - { label: "HERO — Photo", name: "hero_photo", widget: "image" }
+          - { label: "HERO — Card Label", name: "hero_card_label", widget: "string" }
+          - { label: "HERO — Card Text", name: "hero_card_text", widget: "string" }
+          - { label: "LETTER — Opening Line", name: "letter_greeting", widget: "string" }
+          - { label: "LETTER — Body (HTML supported for italic/bold)", name: "letter_body", widget: "text" }
+          - { label: "LETTER — Signature Name", name: "letter_sign_name", widget: "string" }
+          - { label: "LETTER — Signature Title", name: "letter_sign_title", widget: "string" }
+          - { label: "CREDENTIALS — Label", name: "creds_label", widget: "string" }
+          - label: "CREDENTIALS — Items"
+            name: "creds_items"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "DOES THIS SOUND LIKE YOU — Eyebrow", name: "foryou_eyebrow", widget: "string" }
+          - { label: "DOES THIS SOUND LIKE YOU — Heading Line 1", name: "foryou_title", widget: "string" }
+          - { label: "DOES THIS SOUND LIKE YOU — Heading Line 2 (italic)", name: "foryou_title_em", widget: "string" }
+          - { label: "DOES THIS SOUND LIKE YOU — Body", name: "foryou_body", widget: "text" }
+          - { label: "DOES THIS SOUND LIKE YOU — Button Label", name: "foryou_cta_label", widget: "string" }
+          - { label: "DOES THIS SOUND LIKE YOU — Button URL", name: "foryou_cta_url", widget: "string" }
+          - label: "DOES THIS SOUND LIKE YOU — List Items"
+            name: "resonance_items"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "text" }
+          - { label: "STORY — Photo", name: "story_photo", widget: "image" }
+          - { label: "STORY — Photo Card Label", name: "story_photo_card_label", widget: "string" }
+          - { label: "STORY — Photo Card Text", name: "story_photo_card_text", widget: "string" }
+          - { label: "STORY — Eyebrow", name: "story_eyebrow", widget: "string" }
+          - { label: "STORY — Heading Line 1", name: "story_title", widget: "string" }
+          - { label: "STORY — Heading Line 2 (italic)", name: "story_title_em", widget: "string" }
+          - { label: "STORY — Paragraph 1", name: "story_body_1", widget: "text" }
+          - { label: "STORY — Pull Quote", name: "story_pullquote", widget: "text" }
+          - { label: "STORY — Paragraph 2", name: "story_body_2", widget: "text" }
+          - { label: "STORY — Button Label", name: "story_cta_label", widget: "string" }
+          - { label: "STORY — Button URL", name: "story_cta_url", widget: "string" }
+          - { label: "QUOTE BREAK — Text", name: "quote_text", widget: "text" }
+          - { label: "QUOTE BREAK — Attribution", name: "quote_attr", widget: "string" }
+          - { label: "VOICE — Eyebrow", name: "voice_eyebrow", widget: "string" }
+          - { label: "VOICE — Heading Line 1", name: "voice_title", widget: "string" }
+          - { label: "VOICE — Heading Line 2 (italic)", name: "voice_title_em", widget: "string" }
+          - { label: "VOICE — Intro Paragraph", name: "voice_intro", widget: "text" }
+          - { label: "VOICE — Button Label", name: "voice_cta_label", widget: "string" }
+          - { label: "VOICE — Button URL", name: "voice_cta_url", widget: "string" }
+          - label: "VOICE — Pillars"
+            name: "voice_pillars"
+            widget: "list"
+            fields:
+              - { label: "Letter", name: "letter", widget: "string" }
+              - { label: "Word", name: "word", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+          - { label: "TESTIMONIALS — Eyebrow", name: "testimonials_eyebrow", widget: "string" }
+          - { label: "TESTIMONIALS — Heading Line 1", name: "testimonials_title", widget: "string" }
+          - { label: "TESTIMONIALS — Heading Line 2 (italic)", name: "testimonials_title_em", widget: "string" }
+          - { label: "SERVICES — Eyebrow", name: "services_eyebrow", widget: "string" }
+          - { label: "SERVICES — Heading Line 1", name: "services_title", widget: "string" }
+          - { label: "SERVICES — Heading Line 2 (italic)", name: "services_title_em", widget: "string" }
+          - label: "SERVICES — Cards"
+            name: "service_cards"
+            widget: "list"
+            fields:
+              - { label: "Tag", name: "tag", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Link Label", name: "link_label", widget: "string" }
+              - { label: "Link URL", name: "link_url", widget: "string" }
+          - { label: "OFFER — Eyebrow", name: "offer_eyebrow", widget: "string" }
+          - { label: "OFFER — Heading Line 1", name: "offer_title", widget: "string" }
+          - { label: "OFFER — Heading Line 2 (italic)", name: "offer_title_em", widget: "string" }
+          - { label: "OFFER — Program Name", name: "offer_program_name", widget: "string" }
+          - { label: "OFFER — Program Description", name: "offer_description", widget: "text" }
+          - label: "OFFER — What's Included"
+            name: "offer_includes"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "OFFER — Price Label", name: "offer_price_label", widget: "string" }
+          - { label: "OFFER — Clarity Call Box Title", name: "offer_clarity_title", widget: "string" }
+          - { label: "OFFER — Clarity Call Box Body", name: "offer_clarity_body", widget: "text" }
+          - { label: "OFFER — Primary Button Label", name: "offer_cta_primary_label", widget: "string" }
+          - { label: "OFFER — Primary Button URL", name: "offer_cta_primary_url", widget: "string" }
+          - { label: "OFFER — Secondary Button Label", name: "offer_cta_secondary_label", widget: "string" }
+          - { label: "OFFER — Secondary Button URL", name: "offer_cta_secondary_url", widget: "string" }
+          - { label: "ARTICLES — Eyebrow", name: "articles_eyebrow", widget: "string" }
+          - { label: "ARTICLES — Heading Line 1", name: "articles_title", widget: "string" }
+          - { label: "ARTICLES — Heading Line 2 (italic)", name: "articles_title_em", widget: "string" }
+          - { label: "ARTICLES — Button Label", name: "articles_cta_label", widget: "string" }
+          - { label: "ARTICLES — Button URL", name: "articles_cta_url", widget: "string" }
+          - { label: "LEAD MAGNET — Eyebrow", name: "lead_magnet_eyebrow", widget: "string" }
+          - { label: "LEAD MAGNET — Heading Line 1", name: "lead_magnet_title", widget: "string" }
+          - { label: "LEAD MAGNET — Heading Line 2 (italic)", name: "lead_magnet_title_em", widget: "string" }
+          - { label: "LEAD MAGNET — Body", name: "lead_magnet_body", widget: "text" }
+          - label: "LEAD MAGNET — Bullet Points"
+            name: "lead_magnet_items"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "LEAD MAGNET — Button Label", name: "lead_magnet_button", widget: "string" }
+          - { label: "LEAD MAGNET — Note Below Button", name: "lead_magnet_note", widget: "string" }
+          - { label: "LEAD MAGNET — Mockup Sub-label", name: "lead_magnet_mockup_sub", widget: "string" }
+          - { label: "LEAD MAGNET — Mockup Title", name: "lead_magnet_mockup_title", widget: "string" }
+          - { label: "LEAD MAGNET — Mockup Author", name: "lead_magnet_mockup_author", widget: "string" }
+          - { label: "FINAL CTA — Eyebrow", name: "final_cta_eyebrow", widget: "string" }
+          - { label: "FINAL CTA — Heading Line 1", name: "final_cta_title", widget: "string" }
+          - { label: "FINAL CTA — Heading Line 2 (italic)", name: "final_cta_title_em", widget: "string" }
+          - { label: "FINAL CTA — Body", name: "final_cta_body", widget: "text" }
+          - { label: "FINAL CTA — Primary Button Label", name: "final_cta_primary_label", widget: "string" }
+          - { label: "FINAL CTA — Primary Button URL", name: "final_cta_primary_url", widget: "string" }
+          - { label: "FINAL CTA — Secondary Button Label", name: "final_cta_secondary_label", widget: "string" }
+          - { label: "FINAL CTA — Secondary Button URL", name: "final_cta_secondary_url", widget: "string" }
+          - { label: "FINAL CTA — Note Below Buttons", name: "final_cta_note", widget: "string" }
+
+  # ──────────────────────────────
+  # ABOUT PAGE
+  # ──────────────────────────────
+  - name: "about_page"
+    label: "About Page"
+    files:
+      - label: "About Page"
+        name: "about_page"
+        file: "_data/about.yml"
+        fields:
+          - { label: "HERO — Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "HERO — Heading Line 1", name: "hero_title", widget: "string" }
+          - { label: "HERO — Heading Line 2 (italic)", name: "hero_title_em", widget: "string" }
+          - { label: "HERO — Tagline", name: "hero_tagline", widget: "text" }
+          - { label: "INTRO — Photo", name: "about_photo", widget: "image" }
+          - { label: "INTRO — Photo Caption", name: "about_photo_caption", widget: "string" }
+          - { label: "INTRO — Eyebrow", name: "intro_eyebrow", widget: "string" }
+          - { label: "INTRO — Lead Heading", name: "intro_lead", widget: "string" }
+          - { label: "INTRO — Lead Heading Italic Part", name: "intro_lead_em", widget: "string" }
+          - { label: "INTRO — Paragraph 1", name: "intro_body_1", widget: "text" }
+          - { label: "INTRO — Paragraph 2", name: "intro_body_2", widget: "text" }
+          - { label: "INTRO — Paragraph 3", name: "intro_body_3", widget: "text" }
+          - { label: "INTRO — Pull Quote", name: "intro_pullquote", widget: "text" }
+          - { label: "INTRO — Pull Quote Attribution", name: "intro_pullquote_attr", widget: "string" }
+          - { label: "INTRO — Paragraph 4", name: "intro_body_4", widget: "text" }
+          - { label: "CREDENTIALS — Eyebrow", name: "credentials_eyebrow", widget: "string" }
+          - label: "CREDENTIALS — Items"
+            name: "credentials"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Sub-label", name: "sub", widget: "string" }
+          - { label: "VOICE — Eyebrow", name: "voice_eyebrow", widget: "string" }
+          - { label: "VOICE — Heading Line 1", name: "voice_title", widget: "string" }
+          - { label: "VOICE — Heading Line 2 (italic)", name: "voice_title_em", widget: "string" }
+          - { label: "VOICE — Intro", name: "voice_intro", widget: "text" }
+          - label: "VOICE — Pillars"
+            name: "voice_pillars"
+            widget: "list"
+            fields:
+              - { label: "Letter", name: "letter", widget: "string" }
+              - { label: "Word", name: "word", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+          - { label: "PHILOSOPHY — Eyebrow", name: "philosophy_eyebrow", widget: "string" }
+          - { label: "PHILOSOPHY — Heading Line 1", name: "philosophy_title", widget: "string" }
+          - { label: "PHILOSOPHY — Heading Line 2 (italic)", name: "philosophy_title_em", widget: "string" }
+          - { label: "PHILOSOPHY — Paragraph 1", name: "philosophy_body_1", widget: "text" }
+          - { label: "PHILOSOPHY — Paragraph 2", name: "philosophy_body_2", widget: "text" }
+          - { label: "PHILOSOPHY — Paragraph 3", name: "philosophy_body_3", widget: "text" }
+          - label: "PHILOSOPHY — Approach Cards"
+            name: "philosophy_approaches"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - { label: "BEYOND — Eyebrow", name: "beyond_eyebrow", widget: "string" }
+          - { label: "BEYOND — Heading Line 1", name: "beyond_title", widget: "string" }
+          - { label: "BEYOND — Heading Line 2 (italic)", name: "beyond_title_em", widget: "string" }
+          - label: "BEYOND — Cards"
+            name: "beyond_cards"
+            widget: "list"
+            fields:
+              - { label: "Tag", name: "tag", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - { label: "CTA — Eyebrow", name: "cta_eyebrow", widget: "string" }
+          - { label: "CTA — Heading Line 1", name: "cta_title", widget: "string" }
+          - { label: "CTA — Heading Line 2 (italic)", name: "cta_title_em", widget: "string" }
+          - { label: "CTA — Body", name: "cta_body", widget: "text" }
+          - { label: "CTA — Primary Button Label", name: "cta_primary_label", widget: "string" }
+          - { label: "CTA — Primary Button URL", name: "cta_primary_url", widget: "string" }
+          - { label: "CTA — Secondary Button Label", name: "cta_secondary_label", widget: "string" }
+          - { label: "CTA — Secondary Button URL", name: "cta_secondary_url", widget: "string" }
+
+  # ──────────────────────────────
+  # WORK WITH ME PAGE
+  # ──────────────────────────────
+  - name: "work_page"
+    label: "Work With Me Page"
+    files:
+      - label: "Work With Me Page"
+        name: "work_page"
+        file: "_data/work.yml"
+        fields:
+          - { label: "HERO — Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "HERO — Heading Line 1", name: "hero_title", widget: "string" }
+          - { label: "HERO — Heading Line 2 (italic)", name: "hero_title_em", widget: "string" }
+          - { label: "HERO — Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "PROGRAM — Eyebrow", name: "program_eyebrow", widget: "string" }
+          - { label: "PROGRAM — Heading Line 1", name: "program_title", widget: "string" }
+          - { label: "PROGRAM — Heading Line 2 (italic)", name: "program_title_em", widget: "string" }
+          - { label: "PROGRAM — Name", name: "program_name", widget: "string" }
+          - { label: "PROGRAM — Description", name: "program_desc", widget: "text" }
+          - label: "PROGRAM — What's Included"
+            name: "program_includes"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "PROGRAM — Price Label", name: "program_price_label", widget: "string" }
+          - { label: "PROGRAM — Clarity Call Box Title", name: "program_clarity_title", widget: "string" }
+          - { label: "PROGRAM — Clarity Call Box Body", name: "program_clarity_body", widget: "text" }
+          - { label: "PROGRAM — Primary Button Label", name: "program_cta_primary_label", widget: "string" }
+          - { label: "PROGRAM — Primary Button URL", name: "program_cta_primary_url", widget: "string" }
+          - { label: "PROGRAM — Secondary Button Label", name: "program_cta_secondary_label", widget: "string" }
+          - { label: "PROGRAM — Secondary Button URL", name: "program_cta_secondary_url", widget: "string" }
+          - { label: "PROCESS — Eyebrow", name: "process_eyebrow", widget: "string" }
+          - { label: "PROCESS — Heading Line 1", name: "process_title", widget: "string" }
+          - { label: "PROCESS — Heading Line 2 (italic)", name: "process_title_em", widget: "string" }
+          - label: "PROCESS — Steps"
+            name: "process_steps"
+            widget: "list"
+            fields:
+              - { label: "Step Number", name: "num", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - { label: "CTA — Eyebrow", name: "cta_eyebrow", widget: "string" }
+          - { label: "CTA — Heading Line 1", name: "cta_title", widget: "string" }
+          - { label: "CTA — Heading Line 2 (italic)", name: "cta_title_em", widget: "string" }
+          - { label: "CTA — Body", name: "cta_body", widget: "text" }
+          - { label: "CTA — Primary Button Label", name: "cta_primary_label", widget: "string" }
+          - { label: "CTA — Primary Button URL", name: "cta_primary_url", widget: "string" }
+          - { label: "CTA — Secondary Button Label", name: "cta_secondary_label", widget: "string" }
+          - { label: "CTA — Secondary Button URL", name: "cta_secondary_url", widget: "string" }
+
+  # ──────────────────────────────
+  # SPEAKING PAGE
+  # ──────────────────────────────
+  - name: "speaking_page"
+    label: "Speaking Page"
+    files:
+      - label: "Speaking Page"
+        name: "speaking_page"
+        file: "_data/speaking.yml"
+        fields:
+          - { label: "HERO — Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "HERO — Heading Line 1", name: "hero_title", widget: "string" }
+          - { label: "HERO — Heading Line 2 (italic)", name: "hero_title_em", widget: "string" }
+          - { label: "HERO — Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "INTRO — Eyebrow", name: "intro_eyebrow", widget: "string" }
+          - { label: "INTRO — Heading Line 1", name: "intro_title", widget: "string" }
+          - { label: "INTRO — Heading Line 2 (italic)", name: "intro_title_em", widget: "string" }
+          - { label: "INTRO — Paragraph 1", name: "intro_body_1", widget: "text" }
+          - { label: "INTRO — Paragraph 2", name: "intro_body_2", widget: "text" }
+          - { label: "INTRO — Button Label", name: "intro_cta_label", widget: "string" }
+          - { label: "INTRO — Button URL", name: "intro_cta_url", widget: "string" }
+          - { label: "INTRO — Speaker Photo", name: "speaker_photo", widget: "image" }
+          - label: "FORMAT STATS — Cards (4 cards below photo)"
+            name: "format_stats"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - { label: "TOPICS — Eyebrow", name: "topics_eyebrow", widget: "string" }
+          - { label: "TOPICS — Heading Line 1", name: "topics_title", widget: "string" }
+          - { label: "TOPICS — Heading Line 2 (italic)", name: "topics_title_em", widget: "string" }
+          - label: "TOPICS — Topic Cards"
+            name: "topics"
+            widget: "list"
+            fields:
+              - { label: "Tag (e.g. Keynote, Workshop)", name: "tag", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - { label: "BOOKING — Eyebrow", name: "booking_eyebrow", widget: "string" }
+          - { label: "BOOKING — Heading Line 1", name: "booking_title", widget: "string" }
+          - { label: "BOOKING — Heading Line 2 (italic)", name: "booking_title_em", widget: "string" }
+          - { label: "BOOKING — Body", name: "booking_body", widget: "text" }
+          - label: "BOOKING — Formats"
+            name: "booking_formats"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "string" }
+          - { label: "BOOKING — Button Label", name: "booking_cta_label", widget: "string" }
+          - { label: "BOOKING — Button URL", name: "booking_cta_url", widget: "string" }
+          - { label: "BOOKING — Testimonial Quote", name: "booking_testimonial_quote", widget: "text" }
+          - { label: "BOOKING — Testimonial Attribution", name: "booking_testimonial_attr", widget: "string" }
+          - { label: "CTA — Eyebrow", name: "cta_eyebrow", widget: "string" }
+          - { label: "CTA — Heading Line 1", name: "cta_title", widget: "string" }
+          - { label: "CTA — Heading Line 2 (italic)", name: "cta_title_em", widget: "string" }
+          - { label: "CTA — Body", name: "cta_body", widget: "text" }
+          - { label: "CTA — Primary Button Label", name: "cta_primary_label", widget: "string" }
+          - { label: "CTA — Primary Button URL", name: "cta_primary_url", widget: "string" }
+          - { label: "CTA — Secondary Button Label", name: "cta_secondary_label", widget: "string" }
+          - { label: "CTA — Secondary Button URL", name: "cta_secondary_url", widget: "string" }
+
+  # ──────────────────────────────
+  # CONTACT PAGE
+  # ──────────────────────────────
+  - name: "contact_page"
+    label: "Contact Page"
+    files:
+      - label: "Contact Page"
+        name: "contact_page"
+        file: "_data/contact.yml"
+        fields:
+          - { label: "HERO — Heading Line 1", name: "hero_title", widget: "string" }
+          - { label: "HERO — Heading Line 2 (italic)", name: "hero_title_em", widget: "string" }
+          - { label: "Tagline Below Photo", name: "tagline", widget: "text" }
+          - { label: "Contact Photo", name: "contact_photo", widget: "image" }
+          - { label: "Submit Button Label", name: "form_submit_label", widget: "string" }
+          - { label: "Response Time Note", name: "form_response_note", widget: "string" }

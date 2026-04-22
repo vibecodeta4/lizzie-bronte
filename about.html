@@ -10,11 +10,11 @@ active_nav: about
   <header class="page-hero" aria-label="About Dr. Lizzie Bronte">
     <div class="page-hero__inner">
       <div>
-        <p class="eyebrow page-hero__eyebrow">About</p>
-        <h1 class="page-hero__title">Dr. Lizzie<br /><em>Bronte</em></h1>
+        <p class="eyebrow page-hero__eyebrow">{{ about.hero_eyebrow }}</p>
+        <h1 class="page-hero__title">{{ about.hero_title }}<br /><em>{{ about.hero_title_em }}</em></h1>
       </div>
       <div class="page-hero__right">
-        <p class="page-hero__tagline">Leadership advisor. Author. Advocate.<br />Helping high-performing women lead with authority — not performance.</p>
+        <p class="page-hero__tagline">{{ about.hero_tagline }}</p>
       </div>
     </div>
   </header>
@@ -22,34 +22,31 @@ active_nav: about
   <section class="about-intro" aria-labelledby="about-intro-heading">
     <div class="about-intro__inner">
       <div class="about-intro__photo-wrap reveal">
-        <img src="/images/hero-photo.jpg" alt="Dr. Lizzie Bronte" class="about-intro__photo" />
-        <p class="about-intro__photo-caption">Dr. Lizzie Bronte — Founder, Bronte Advisory</p>
+        <img src="{{ about.about_photo }}" alt="Dr. Lizzie Bronte" class="about-intro__photo" />
+        <p class="about-intro__photo-caption">{{ about.about_photo_caption }}</p>
       </div>
       <div class="about-intro__content">
-        <p class="eyebrow reveal">The Work</p>
-        <h2 id="about-intro-heading" class="about-intro__lead reveal">At the intersection of leadership, psychology, and <em>performance under pressure.</em></h2>
-        <p class="about-intro__body reveal">Dr. Lizzie Bronte is a leadership advisor and founder of Bronte Advisory, where she helps high-performing professional women step into their authority in high-stakes environments — without over-preparing, second-guessing, or shrinking.</p>
-        <p class="about-intro__body reveal">With a Ph.D. in Global Leadership and Organizational Management and coaching certifications informed by research on imposter syndrome, her work sits at the intersection of leadership, psychology, and performance under pressure.</p>
-        <p class="about-intro__body reveal">Dr. Bronte specialises in supporting accomplished women who are externally successful but internally navigating hesitation, visibility pressure, and self-doubt as their influence grows. Through her proprietary VOICE Framework™, she equips clients to communicate with clarity, make decisive choices, and lead with grounded confidence.</p>
+        <p class="eyebrow reveal">{{ about.intro_eyebrow }}</p>
+        <h2 id="about-intro-heading" class="about-intro__lead reveal">{{ about.intro_lead }} <em>{{ about.intro_lead_em }}</em></h2>
+        <p class="about-intro__body reveal">{{ about.intro_body_1 }}</p>
+        <p class="about-intro__body reveal">{{ about.intro_body_2 }}</p>
+        <p class="about-intro__body reveal">{{ about.intro_body_3 }}</p>
         <div class="about-intro__pullquote reveal">
-          <p>"This space is for women ready to lead with authority, conviction, and composure — wherever their influence takes them."</p>
-          <cite>— Dr. Lizzie Bronte</cite>
+          <p>"{{ about.intro_pullquote }}"</p>
+          <cite>{{ about.intro_pullquote_attr }}</cite>
         </div>
-        <p class="about-intro__body reveal">Her approach blends research, Stoic philosophy, and lived experience to help women move from self-editing to self-trust — transforming how they show up in meetings, decision-making moments, and leadership spaces.</p>
+        <p class="about-intro__body reveal">{{ about.intro_body_4 }}</p>
       </div>
     </div>
   </section>
 
   <section class="credentials" aria-labelledby="credentials-heading">
     <div class="credentials__inner">
-      <div class="credentials__label reveal"><p class="eyebrow" id="credentials-heading">Credentials &amp; Expertise</p></div>
+      <div class="credentials__label reveal"><p class="eyebrow" id="credentials-heading">{{ about.credentials_eyebrow }}</p></div>
       <div class="credentials__grid">
-        <div class="credential reveal"><div class="credential__dot" aria-hidden="true"></div><div><p class="credential__title">Ph.D. — Global Leadership &amp; Organizational Management</p><p class="credential__sub">Doctoral Research</p></div></div>
-        <div class="credential reveal"><div class="credential__dot" aria-hidden="true"></div><div><p class="credential__title">Certified Leadership Coach</p><p class="credential__sub">Imposter Syndrome Research-Informed Certification</p></div></div>
-        <div class="credential reveal"><div class="credential__dot" aria-hidden="true"></div><div><p class="credential__title">Creator of the VOICE Framework™</p><p class="credential__sub">Proprietary Authority-Building Methodology</p></div></div>
-        <div class="credential reveal"><div class="credential__dot" aria-hidden="true"></div><div><p class="credential__title">Author — <em>Unseen No More</em></p><p class="credential__sub">Ambition, Resilience &amp; Being Fully Seen</p></div></div>
-        <div class="credential reveal"><div class="credential__dot" aria-hidden="true"></div><div><p class="credential__title">Founder — Just Like You Global Foundation</p><p class="credential__sub">Advocacy &amp; Empowerment for Women</p></div></div>
-        <div class="credential reveal"><div class="credential__dot" aria-hidden="true"></div><div><p class="credential__title">Founder — Unseen No More Community</p><p class="credential__sub">Dignity, Visibility &amp; Systemic Empowerment</p></div></div>
+        {% for cred in about.credentials %}
+        <div class="credential reveal"><div class="credential__dot" aria-hidden="true"></div><div><p class="credential__title">{{ cred.title }}</p><p class="credential__sub">{{ cred.sub }}</p></div></div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -57,15 +54,13 @@ active_nav: about
   <section class="voice" aria-labelledby="voice-heading">
     <div class="voice__inner">
       <div class="voice__header">
-        <div class="reveal"><p class="eyebrow">The Methodology</p><h2 id="voice-heading" class="voice__title">The VOICE<br /><em>Framework™</em></h2></div>
-        <div class="reveal"><p class="voice__intro">A proprietary framework built from research, coaching practice, and deep study of how high-performing women close the gap between external achievement and internal authority.</p></div>
+        <div class="reveal"><p class="eyebrow">{{ about.voice_eyebrow }}</p><h2 id="voice-heading" class="voice__title">{{ about.voice_title }}<br /><em>{{ about.voice_title_em }}</em></h2></div>
+        <div class="reveal"><p class="voice__intro">{{ about.voice_intro }}</p></div>
       </div>
       <div class="voice__pillars">
-        <article class="voice__pillar reveal"><div class="voice__letter" aria-hidden="true">V</div><p class="voice__word">Visibility</p><p class="voice__desc">Owning your presence in high-stakes rooms without shrinking, over-explaining, or performing.</p></article>
-        <article class="voice__pillar reveal"><div class="voice__letter" aria-hidden="true">O</div><p class="voice__word">Ownership</p><p class="voice__desc">Taking authority over your decisions, your narrative, and your influence without waiting for permission.</p></article>
-        <article class="voice__pillar reveal"><div class="voice__letter" aria-hidden="true">I</div><p class="voice__word">Intuition</p><p class="voice__desc">Trusting your instincts under pressure — not overriding them with external validation or excessive preparation.</p></article>
-        <article class="voice__pillar reveal"><div class="voice__letter" aria-hidden="true">C</div><p class="voice__word">Conviction</p><p class="voice__desc">Communicating with clarity and certainty — even when others push back, question, or challenge your perspective.</p></article>
-        <article class="voice__pillar reveal"><div class="voice__letter" aria-hidden="true">E</div><p class="voice__word">Embodiment</p><p class="voice__desc">Leading from a place of grounded identity — so authority becomes natural, not a role you have to step into.</p></article>
+        {% for pillar in about.voice_pillars %}
+        <article class="voice__pillar reveal"><div class="voice__letter" aria-hidden="true">{{ pillar.letter }}</div><p class="voice__word">{{ pillar.word }}</p><p class="voice__desc">{{ pillar.desc }}</p></article>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -73,16 +68,16 @@ active_nav: about
   <section class="philosophy" aria-labelledby="philosophy-heading">
     <div class="philosophy__inner">
       <div class="reveal">
-        <p class="eyebrow">The Approach</p>
-        <h2 id="philosophy-heading" class="philosophy__title">Research, philosophy,<br />and <em>lived experience</em></h2>
-        <p class="philosophy__body">Dr. Bronte's approach is not a collection of confidence hacks or motivational frameworks. It is a rigorous, research-grounded methodology that helps women understand the psychology behind self-doubt — and systematically dismantle it.</p>
-        <p class="philosophy__body">Drawing on Stoic philosophy, organizational psychology, and over a decade of working at the intersection of leadership and identity, she helps clients move from self-editing to self-trust in a way that is lasting — not situational.</p>
-        <p class="philosophy__body">The result is a leader who doesn't manage her confidence. She simply leads.</p>
+        <p class="eyebrow">{{ about.philosophy_eyebrow }}</p>
+        <h2 id="philosophy-heading" class="philosophy__title">{{ about.philosophy_title }}<br /><em>{{ about.philosophy_title_em }}</em></h2>
+        <p class="philosophy__body">{{ about.philosophy_body_1 }}</p>
+        <p class="philosophy__body">{{ about.philosophy_body_2 }}</p>
+        <p class="philosophy__body">{{ about.philosophy_body_3 }}</p>
       </div>
       <div>
-        <div class="philosophy__approach reveal"><h3 class="philosophy__approach-title">Research-Grounded</h3><p class="philosophy__approach-body">Every framework and intervention is rooted in peer-reviewed research on imposter syndrome, leadership psychology, and organizational behavior — not anecdote or trend.</p></div>
-        <div class="philosophy__approach reveal"><h3 class="philosophy__approach-title">Stoic Philosophy</h3><p class="philosophy__approach-body">The ancient discipline of separating what is within your control from what is not is quietly revolutionary for women navigating modern high-stakes leadership.</p></div>
-        <div class="philosophy__approach reveal"><h3 class="philosophy__approach-title">Lived Experience</h3><p class="philosophy__approach-body">Dr. Bronte brings her own experience of navigating authority, visibility, and identity to every client engagement — with earned empathy and hard-won insight.</p></div>
+        {% for approach in about.philosophy_approaches %}
+        <div class="philosophy__approach reveal"><h3 class="philosophy__approach-title">{{ approach.title }}</h3><p class="philosophy__approach-body">{{ approach.body }}</p></div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -90,25 +85,25 @@ active_nav: about
   <section class="beyond" aria-labelledby="beyond-heading">
     <div class="beyond__inner">
       <div class="beyond__header reveal">
-        <p class="eyebrow">Beyond the Advisory</p>
-        <h2 id="beyond-heading">A commitment to <em>wider impact</em></h2>
+        <p class="eyebrow">{{ about.beyond_eyebrow }}</p>
+        <h2 id="beyond-heading">{{ about.beyond_title }} <em>{{ about.beyond_title_em }}</em></h2>
       </div>
       <div class="beyond__grid">
-        <article class="beyond__card reveal"><span class="beyond__card-tag">Foundation</span><h3 class="beyond__card-title">Just Like You Global Foundation</h3><p class="beyond__card-body">An advocacy initiative dedicated to dignity, visibility, and empowerment — particularly for women impacted by domestic abuse and systemic barriers. Every woman deserves to be fully seen.</p></article>
-        <article class="beyond__card reveal"><span class="beyond__card-tag">Community</span><h3 class="beyond__card-title">Unseen No More Community</h3><p class="beyond__card-body">A community space for women navigating visibility, resilience, and the courage to step forward. Built on the conviction that being seen is not a privilege — it is a right.</p></article>
-        <article class="beyond__card reveal"><span class="beyond__card-tag">Book</span><h3 class="beyond__card-title">Unseen No More</h3><p class="beyond__card-body">Dr. Bronte's book exploring ambition, resilience, and the freedom of being fully seen — for any woman who has ever made herself smaller to make others comfortable.</p></article>
+        {% for card in about.beyond_cards %}
+        <article class="beyond__card reveal"><span class="beyond__card-tag">{{ card.tag }}</span><h3 class="beyond__card-title">{{ card.title }}</h3><p class="beyond__card-body">{{ card.body }}</p></article>
+        {% endfor %}
       </div>
     </div>
   </section>
 
   <section class="about-cta" aria-labelledby="about-cta-heading">
     <div class="about-cta__inner reveal">
-      <p class="eyebrow">Work With Dr. Bronte</p>
-      <h2 id="about-cta-heading" class="about-cta__title">Ready to lead with<br /><em>your full authority?</em></h2>
-      <p class="about-cta__body">The Clarity Call is where it begins. A private 20-minute conversation to explore where you are, what's holding you back, and whether working together is the right fit.</p>
+      <p class="eyebrow">{{ about.cta_eyebrow }}</p>
+      <h2 id="about-cta-heading" class="about-cta__title">{{ about.cta_title }}<br /><em>{{ about.cta_title_em }}</em></h2>
+      <p class="about-cta__body">{{ about.cta_body }}</p>
       <div class="about-cta__ctas">
-        <a href="/book.html" class="btn btn-emerald">Book a Clarity Call</a>
-        <a href="/work-with-me.html" class="btn btn-ghost">Explore the Program</a>
+        <a href="{{ about.cta_primary_url }}" class="btn btn-emerald">{{ about.cta_primary_label }}</a>
+        <a href="{{ about.cta_secondary_url }}" class="btn btn-ghost">{{ about.cta_secondary_label }}</a>
       </div>
     </div>
   </section>

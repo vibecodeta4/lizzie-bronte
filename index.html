@@ -13,25 +13,23 @@ scroll_threshold: 80
   <section class="hero" aria-label="Introduction">
     <div class="hero__left">
       <div class="hero__content">
-        <p class="hero__eyebrow">Executive Advisory for Women</p>
+        <p class="hero__eyebrow">{{ home.hero_eyebrow }}</p>
         <h1 class="hero__title">
-          You've done<br />the work.<br /><em>Now own the room.</em>
+          {{ home.hero_title }}<br /><em>{{ home.hero_title_em }}</em>
         </h1>
-        <p class="hero__subtitle">
-          Executive advisory for high-performing women who are impressive on paper — and ready to feel it in every room they walk into.
-        </p>
+        <p class="hero__subtitle">{{ home.hero_subtitle }}</p>
         <div class="hero__ctas">
-          <a href="/book.html" class="btn btn-emerald">Book a Clarity Call</a>
-          <a href="/work-with-me.html" class="btn btn-ghost">Explore the Program</a>
+          <a href="{{ home.hero_cta_primary_url }}" class="btn btn-emerald">{{ home.hero_cta_primary_label }}</a>
+          <a href="{{ home.hero_cta_secondary_url }}" class="btn btn-ghost">{{ home.hero_cta_secondary_label }}</a>
         </div>
       </div>
     </div>
     <div class="hero__right">
-      <img src="/images/about-photo.jpg" alt="Dr. Lizzie Bronte" class="hero__photo" />
+      <img src="{{ home.hero_photo }}" alt="Dr. Lizzie Bronte" class="hero__photo" />
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__card" aria-hidden="true">
-        <p class="hero__card-label">Ph.D. Global Leadership</p>
-        <p class="hero__card-text">Creator of the VOICE Framework™</p>
+        <p class="hero__card-label">{{ home.hero_card_label }}</p>
+        <p class="hero__card-text">{{ home.hero_card_text }}</p>
       </div>
     </div>
   </section>
@@ -39,17 +37,12 @@ scroll_threshold: 80
   <!-- ════ PERSONAL LETTER ════ -->
   <section class="letter" aria-label="A personal message">
     <div class="letter__inner reveal">
-      <p class="letter__greeting">If you are reading this —</p>
-      <p class="letter__body">
-        You are probably already <em>very good</em> at what you do.<br /><br />
-        You have the credentials. The track record. The room in the diary.<br /><br />
-        And yet. There is still something that pulls you back in high-stakes moments. A hesitation before you speak. A second-guess after you decide. A performance of confidence you have been perfecting for years — <em>because the alternative feels too exposed.</em><br /><br />
-        <strong>That is exactly what we dismantle here.</strong>
-      </p>
+      <p class="letter__greeting">{{ home.letter_greeting }}</p>
+      <p class="letter__body">{{ home.letter_body }}</p>
       <div class="letter__sign">
         <div>
-          <p class="letter__sign-name">Dr. Lizzie Bronte</p>
-          <p class="letter__sign-title">Ph.D. · Founder, Bronte Advisory · Creator of the VOICE Framework™</p>
+          <p class="letter__sign-name">{{ home.letter_sign_name }}</p>
+          <p class="letter__sign-title">{{ home.letter_sign_title }}</p>
         </div>
       </div>
     </div>
@@ -58,15 +51,11 @@ scroll_threshold: 80
   <!-- ════ CREDENTIALS ════ -->
   <div class="creds-strip" aria-label="Credentials">
     <div class="creds-strip__inner">
-      <p class="creds-strip__label">Credentials</p>
+      <p class="creds-strip__label">{{ home.creds_label }}</p>
+      {% for item in home.creds_items %}
       <div class="creds-strip__dot" aria-hidden="true"></div>
-      <span class="creds-strip__item">Just Like You Foundation</span>
-      <div class="creds-strip__dot" aria-hidden="true"></div>
-      <span class="creds-strip__item">Inner Authority Community</span>
-      <div class="creds-strip__dot" aria-hidden="true"></div>
-      <span class="creds-strip__item">Ph.D. Global Leadership</span>
-      <div class="creds-strip__dot" aria-hidden="true"></div>
-      <span class="creds-strip__item">VOICE Framework™</span>
+      <span class="creds-strip__item">{{ item }}</span>
+      {% endfor %}
     </div>
   </div>
 
@@ -74,34 +63,18 @@ scroll_threshold: 80
   <section class="for-you" aria-labelledby="foryou-heading">
     <div class="for-you__inner">
       <div class="for-you__sticky reveal">
-        <p class="eyebrow">Does This Sound Like You?</p>
-        <h2 id="foryou-heading" class="for-you__title">
-          Accomplished<br />on the outside.<br /><em>Uncertain<br />on the inside.</em>
-        </h2>
-        <p class="for-you__body">You are in a senior role — and by every external measure, you are doing well. But something in high-stakes moments still pulls you back. You are ready to stop managing it and start dismantling it.</p>
-        <a href="/work-with-me.html" class="btn btn-primary">See How We Work Together</a>
+        <p class="eyebrow">{{ home.foryou_eyebrow }}</p>
+        <h2 id="foryou-heading" class="for-you__title">{{ home.foryou_title }}<br /><em>{{ home.foryou_title_em }}</em></h2>
+        <p class="for-you__body">{{ home.foryou_body }}</p>
+        <a href="{{ home.foryou_cta_url }}" class="btn btn-primary">{{ home.foryou_cta_label }}</a>
       </div>
       <ul class="resonance reveal" role="list">
+        {% for item in home.resonance_items %}
         <li class="resonance__item">
-          <span class="resonance__num" aria-hidden="true">01</span>
-          <p class="resonance__text">You over-prepare for presentations and still second-guess yourself walking out the door.</p>
+          <span class="resonance__num" aria-hidden="true">0{{ forloop.index }}</span>
+          <p class="resonance__text">{{ item }}</p>
         </li>
-        <li class="resonance__item">
-          <span class="resonance__num" aria-hidden="true">02</span>
-          <p class="resonance__text">You hesitate to advocate for yourself in rooms where you absolutely belong.</p>
-        </li>
-        <li class="resonance__item">
-          <span class="resonance__num" aria-hidden="true">03</span>
-          <p class="resonance__text">You hold back your opinion because you are not sure it will land — or that you are right enough.</p>
-        </li>
-        <li class="resonance__item">
-          <span class="resonance__num" aria-hidden="true">04</span>
-          <p class="resonance__text">You are exhausted from performing confidence rather than simply having it.</p>
-        </li>
-        <li class="resonance__item">
-          <span class="resonance__num" aria-hidden="true">05</span>
-          <p class="resonance__text">You are ready for a real investment in yourself — not another course or productivity system.</p>
-        </li>
+        {% endfor %}
       </ul>
     </div>
   </section>
@@ -110,23 +83,21 @@ scroll_threshold: 80
   <section class="story" aria-labelledby="story-heading">
     <div class="story__inner">
       <div class="story__photo-wrap reveal">
-        <img src="/images/hero-photo.jpg" alt="Dr. Lizzie Bronte" class="story__photo" />
+        <img src="{{ home.story_photo }}" alt="Dr. Lizzie Bronte" class="story__photo" />
         <div class="story__photo-card">
-          <p class="story__photo-card-label">Ph.D.</p>
-          <p class="story__photo-card-text">Global Leadership &amp; Organizational Management</p>
+          <p class="story__photo-card-label">{{ home.story_photo_card_label }}</p>
+          <p class="story__photo-card-text">{{ home.story_photo_card_text }}</p>
         </div>
       </div>
       <div class="story__content">
-        <p class="eyebrow reveal">Meet Dr. Bronte</p>
-        <h2 id="story-heading" class="story__title reveal">
-          I know what it feels like<br />to be the most qualified<br />person in the room —<br /><em>and still shrink.</em>
-        </h2>
-        <p class="story__body reveal">Dr. Lizzie Bronte is a leadership advisor, author, and founder of Bronte Advisory. Her work sits at the intersection of leadership, psychology, and performance under pressure — and it is grounded in a Ph.D., research on imposter syndrome, and lived experience.</p>
+        <p class="eyebrow reveal">{{ home.story_eyebrow }}</p>
+        <h2 id="story-heading" class="story__title reveal">{{ home.story_title }}<br /><em>{{ home.story_title_em }}</em></h2>
+        <p class="story__body reveal">{{ home.story_body_1 }}</p>
         <div class="story__pullquote reveal">
-          <p>"The hesitation you feel is not a character flaw. It is a pattern — and patterns can be dismantled."</p>
+          <p>"{{ home.story_pullquote }}"</p>
         </div>
-        <p class="story__body reveal">Through the VOICE Framework™, she helps accomplished women close the gap between their external success and their internal experience of leading — permanently.</p>
-        <a href="/about.html" class="btn btn-secondary reveal" style="margin-top:var(--space-6);">Read Full Bio</a>
+        <p class="story__body reveal">{{ home.story_body_2 }}</p>
+        <a href="{{ home.story_cta_url }}" class="btn btn-secondary reveal" style="margin-top:var(--space-6);">{{ home.story_cta_label }}</a>
       </div>
     </div>
   </section>
@@ -134,12 +105,8 @@ scroll_threshold: 80
   <!-- ════ LARGE QUOTE BREAK ════ -->
   <div class="quote-break reveal" aria-hidden="true">
     <div class="quote-break__inner">
-      <p class="quote-break__text">
-        "You are not lacking confidence.<br />
-        You are carrying a version of yourself<br />
-        that was built to <em>earn her place</em> — not take it."
-      </p>
-      <p class="quote-break__attr">— Dr. Lizzie Bronte</p>
+      <p class="quote-break__text">"{{ home.quote_text }}"</p>
+      <p class="quote-break__attr">{{ home.quote_attr }}</p>
     </div>
   </div>
 
@@ -148,20 +115,18 @@ scroll_threshold: 80
     <div class="voice-home__inner">
       <div class="voice-home__header">
         <div class="reveal">
-          <p class="eyebrow">The Methodology</p>
-          <h2 id="voice-heading" class="voice-home__title">The VOICE<br /><em>Framework™</em></h2>
+          <p class="eyebrow">{{ home.voice_eyebrow }}</p>
+          <h2 id="voice-heading" class="voice-home__title">{{ home.voice_title }}<br /><em>{{ home.voice_title_em }}</em></h2>
         </div>
         <div class="reveal">
-          <p class="voice-home__intro">A proprietary framework built from research, coaching practice, and deep study of how high-performing women close the gap between external achievement and internal authority.</p>
-          <a href="/about.html" class="btn btn-secondary" style="margin-top:var(--space-6);">Explore the Full Framework</a>
+          <p class="voice-home__intro">{{ home.voice_intro }}</p>
+          <a href="{{ home.voice_cta_url }}" class="btn btn-secondary" style="margin-top:var(--space-6);">{{ home.voice_cta_label }}</a>
         </div>
       </div>
       <div class="voice-home__grid">
-        <article class="voice-home__pillar reveal"><div class="voice-home__letter" aria-hidden="true">V</div><p class="voice-home__word">Visibility</p><p class="voice-home__desc">Own your presence in high-stakes rooms without shrinking or over-explaining.</p></article>
-        <article class="voice-home__pillar reveal"><div class="voice-home__letter" aria-hidden="true">O</div><p class="voice-home__word">Ownership</p><p class="voice-home__desc">Take authority over your decisions and influence without waiting for permission.</p></article>
-        <article class="voice-home__pillar reveal"><div class="voice-home__letter" aria-hidden="true">I</div><p class="voice-home__word">Intuition</p><p class="voice-home__desc">Trust your instincts under pressure — not override them with over-preparation.</p></article>
-        <article class="voice-home__pillar reveal"><div class="voice-home__letter" aria-hidden="true">C</div><p class="voice-home__word">Conviction</p><p class="voice-home__desc">Communicate with certainty — even when others push back or challenge your view.</p></article>
-        <article class="voice-home__pillar reveal"><div class="voice-home__letter" aria-hidden="true">E</div><p class="voice-home__word">Embodiment</p><p class="voice-home__desc">Lead from grounded identity — so authority becomes natural, not a role you step into.</p></article>
+        {% for pillar in home.voice_pillars %}
+        <article class="voice-home__pillar reveal"><div class="voice-home__letter" aria-hidden="true">{{ pillar.letter }}</div><p class="voice-home__word">{{ pillar.word }}</p><p class="voice-home__desc">{{ pillar.desc }}</p></article>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -170,8 +135,8 @@ scroll_threshold: 80
   <section class="testimonials" aria-labelledby="testimonials-heading">
     <div class="testimonials__inner">
       <div class="testimonials__header reveal">
-        <p class="eyebrow">Client Voices</p>
-        <h2 id="testimonials-heading" class="testimonials__title">What becomes<br /><em>possible</em></h2>
+        <p class="eyebrow">{{ home.testimonials_eyebrow }}</p>
+        <h2 id="testimonials-heading" class="testimonials__title">{{ home.testimonials_title }}<br /><em>{{ home.testimonials_title_em }}</em></h2>
       </div>
       <div class="testimonial-hero reveal">
         <blockquote class="testimonial-hero__quote">"{{ testimonials.featured.quote }}"</blockquote>
@@ -200,28 +165,18 @@ scroll_threshold: 80
   <section class="services" aria-labelledby="services-heading">
     <div class="services__inner">
       <div class="services__header reveal">
-        <p class="eyebrow">How I Can Help</p>
-        <h2 id="services-heading" class="services__title">Three ways we<br /><em>work together</em></h2>
+        <p class="eyebrow">{{ home.services_eyebrow }}</p>
+        <h2 id="services-heading" class="services__title">{{ home.services_title }}<br /><em>{{ home.services_title_em }}</em></h2>
       </div>
       <div class="services__grid">
+        {% for card in home.service_cards %}
         <article class="service-card reveal">
-          <p class="service-card__tag">1:1 Advisory</p>
-          <h3 class="service-card__title">The Authority Advisory</h3>
-          <p class="service-card__body">A private 12-week engagement for senior women ready to close the gap between external success and internal authority. Rigorous. Personalized. Transformational.</p>
-          <a href="/work-with-me.html" class="service-card__link">Explore the program →</a>
+          <p class="service-card__tag">{{ card.tag }}</p>
+          <h3 class="service-card__title">{{ card.title }}</h3>
+          <p class="service-card__body">{{ card.body }}</p>
+          <a href="{{ card.link_url }}" class="service-card__link">{{ card.link_label }}</a>
         </article>
-        <article class="service-card reveal">
-          <p class="service-card__tag">Speaking</p>
-          <h3 class="service-card__title">Keynotes &amp; Workshops</h3>
-          <p class="service-card__body">Research-grounded talks on authority, imposter syndrome, and leadership identity — for corporate teams, conferences, and leadership retreats.</p>
-          <a href="/speaking.html" class="service-card__link">Book Dr. Bronte →</a>
-        </article>
-        <article class="service-card reveal">
-          <p class="service-card__tag">Community</p>
-          <h3 class="service-card__title">Inner Authority Community</h3>
-          <p class="service-card__body">A community for women navigating visibility, resilience, and the courage to step fully forward. Built on the conviction that being seen is a right, not a privilege.</p>
-          <a href="#" class="service-card__link">Learn more →</a>
-        </article>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -230,36 +185,34 @@ scroll_threshold: 80
   <section class="offer" aria-labelledby="offer-heading">
     <div class="offer__inner">
       <div class="offer__header reveal">
-        <p class="eyebrow">The Program</p>
-        <h2 id="offer-heading" class="offer__h2">12 weeks to <em>unshakeable authority</em></h2>
+        <p class="eyebrow">{{ home.offer_eyebrow }}</p>
+        <h2 id="offer-heading" class="offer__h2">{{ home.offer_title }} <em>{{ home.offer_title_em }}</em></h2>
       </div>
       <div class="offer__card reveal">
         <div class="offer__card-left">
-          <h3 class="offer__program-name">The Authority Advisory</h3>
+          <h3 class="offer__program-name">{{ home.offer_program_name }}</h3>
           <p class="offer__program-duration">{{ pricing.program_duration }}</p>
-          <p class="offer__description">A private advisory engagement for senior professional women ready to close the gap between their external success and their internal experience of leading.</p>
+          <p class="offer__description">{{ home.offer_description }}</p>
           <ul class="offer__includes" role="list">
-            <li class="offer__include"><span class="offer__include-dot" aria-hidden="true"></span>Bi-weekly private advisory sessions (6 total)</li>
-            <li class="offer__include"><span class="offer__include-dot" aria-hidden="true"></span>Deep-dive authority and communication assessment</li>
-            <li class="offer__include"><span class="offer__include-dot" aria-hidden="true"></span>Personalized strategy for your high-stakes environments</li>
-            <li class="offer__include"><span class="offer__include-dot" aria-hidden="true"></span>Voxer access between sessions for real-time support</li>
-            <li class="offer__include"><span class="offer__include-dot" aria-hidden="true"></span>Full VOICE Framework™ resource library</li>
+            {% for item in home.offer_includes %}
+            <li class="offer__include"><span class="offer__include-dot" aria-hidden="true"></span>{{ item }}</li>
+            {% endfor %}
           </ul>
         </div>
         <div class="offer__card-right">
-          <p class="offer__price-label">Investment</p>
+          <p class="offer__price-label">{{ home.offer_price_label }}</p>
           <div class="offer__prices">
             <div class="offer__price"><span class="offer__price-amount">{{ pricing.monthly_amount }}</span><span class="offer__price-period">{{ pricing.monthly_period }}</span></div>
             <div class="offer__price-divider" aria-hidden="true"></div>
             <div class="offer__price"><span class="offer__price-amount">{{ pricing.full_amount }}</span><span class="offer__price-period">{{ pricing.full_period }}</span></div>
           </div>
           <div class="offer__clarity">
-            <p class="offer__clarity-title">Start with a Clarity Call</p>
-            <p class="offer__clarity-body">A private 20-minute conversation. No pitch, no pressure — just clarity on where you are and whether working together is the right fit.</p>
+            <p class="offer__clarity-title">{{ home.offer_clarity_title }}</p>
+            <p class="offer__clarity-body">{{ home.offer_clarity_body }}</p>
           </div>
           <div class="offer__ctas">
-            <a href="/book.html" class="btn btn-emerald">Book a Clarity Call</a>
-            <a href="/work-with-me.html" class="btn btn-ghost">Full Program Details</a>
+            <a href="{{ home.offer_cta_primary_url }}" class="btn btn-emerald">{{ home.offer_cta_primary_label }}</a>
+            <a href="{{ home.offer_cta_secondary_url }}" class="btn btn-ghost">{{ home.offer_cta_secondary_label }}</a>
           </div>
         </div>
       </div>
@@ -271,10 +224,10 @@ scroll_threshold: 80
     <div class="articles__inner">
       <div class="articles__header reveal">
         <div>
-          <p class="eyebrow">Insights</p>
-          <h2 id="articles-heading" class="articles__title">Thinking on <em>leadership &amp; authority</em></h2>
+          <p class="eyebrow">{{ home.articles_eyebrow }}</p>
+          <h2 id="articles-heading" class="articles__title">{{ home.articles_title }} <em>{{ home.articles_title_em }}</em></h2>
         </div>
-        <a href="#" class="btn btn-secondary">View All Articles</a>
+        <a href="{{ home.articles_cta_url }}" class="btn btn-secondary">{{ home.articles_cta_label }}</a>
       </div>
       <div class="articles__grid">
         {% assign recent_posts = collections.posts | limit: 3 %}
@@ -325,27 +278,27 @@ scroll_threshold: 80
   <section class="lead-magnet" aria-labelledby="lead-magnet-heading">
     <div class="lead-magnet__inner">
       <div class="lead-magnet__content">
-        <p class="eyebrow reveal">Free Resource</p>
-        <h2 id="lead-magnet-heading" class="lead-magnet__title reveal">The <em>Authority<br />Self-Assessment</em></h2>
-        <p class="lead-magnet__body reveal">A short, honest diagnostic to identify exactly where self-doubt is showing up in your leadership — and what to do about it.</p>
+        <p class="eyebrow reveal">{{ home.lead_magnet_eyebrow }}</p>
+        <h2 id="lead-magnet-heading" class="lead-magnet__title reveal">{{ home.lead_magnet_title }} <em>{{ home.lead_magnet_title_em }}</em></h2>
+        <p class="lead-magnet__body reveal">{{ home.lead_magnet_body }}</p>
         <ul class="lead-magnet__what reveal" role="list">
-          <li class="lead-magnet__what-item"><span class="lead-magnet__what-dot" aria-hidden="true"></span>Identify your specific authority gap</li>
-          <li class="lead-magnet__what-item"><span class="lead-magnet__what-dot" aria-hidden="true"></span>Pinpoint which VOICE pillar needs attention</li>
-          <li class="lead-magnet__what-item"><span class="lead-magnet__what-dot" aria-hidden="true"></span>Walk away with clarity, not just reflection</li>
+          {% for item in home.lead_magnet_items %}
+          <li class="lead-magnet__what-item"><span class="lead-magnet__what-dot" aria-hidden="true"></span>{{ item }}</li>
+          {% endfor %}
         </ul>
         <form class="lead-magnet__form reveal" onsubmit="return false;">
           <input type="email" placeholder="Your email address" class="lead-magnet__input" aria-label="Email address" />
-          <button type="submit" class="btn btn-emerald">Download Free</button>
+          <button type="submit" class="btn btn-emerald">{{ home.lead_magnet_button }}</button>
         </form>
-        <p class="lead-magnet__note reveal">No spam. No fluff. Just clarity.</p>
+        <p class="lead-magnet__note reveal">{{ home.lead_magnet_note }}</p>
       </div>
       <div class="lead-magnet__visual" aria-hidden="true">
         <div class="lead-magnet__mockup">
-          <p class="lead-magnet__mockup-sub">Free Assessment</p>
+          <p class="lead-magnet__mockup-sub">{{ home.lead_magnet_mockup_sub }}</p>
           <div class="lead-magnet__mockup-rule"></div>
-          <p class="lead-magnet__mockup-title">The Authority Self-Assessment</p>
+          <p class="lead-magnet__mockup-title">{{ home.lead_magnet_mockup_title }}</p>
           <div class="lead-magnet__mockup-rule"></div>
-          <p class="lead-magnet__mockup-sub">Dr. Lizzie Bronte</p>
+          <p class="lead-magnet__mockup-sub">{{ home.lead_magnet_mockup_author }}</p>
         </div>
       </div>
     </div>
@@ -355,16 +308,16 @@ scroll_threshold: 80
   <section class="final-cta" aria-labelledby="final-cta-heading">
     <div class="final-cta__inner reveal">
       <div class="final-cta__deco" aria-hidden="true"></div>
-      <p class="eyebrow">Your Next Step</p>
+      <p class="eyebrow">{{ home.final_cta_eyebrow }}</p>
       <h2 id="final-cta-heading" class="final-cta__title">
-        You've earned<br />your seat.<br /><em>Now own it.</em>
+        {{ home.final_cta_title }}<br /><em>{{ home.final_cta_title_em }}</em>
       </h2>
-      <p class="final-cta__body">The Clarity Call is where it begins. A single conversation that can change how you lead — for good. Spaces are limited to four per month.</p>
+      <p class="final-cta__body">{{ home.final_cta_body }}</p>
       <div class="final-cta__ctas">
-        <a href="/book.html" class="btn btn-primary">Book a Clarity Call</a>
-        <a href="/contact.html" class="btn btn-secondary">Apply to Work Together</a>
+        <a href="{{ home.final_cta_primary_url }}" class="btn btn-primary">{{ home.final_cta_primary_label }}</a>
+        <a href="{{ home.final_cta_secondary_url }}" class="btn btn-secondary">{{ home.final_cta_secondary_label }}</a>
       </div>
-      <p class="final-cta__note">Clarity Calls are complimentary. Spaces are intentionally limited.</p>
+      <p class="final-cta__note">{{ home.final_cta_note }}</p>
     </div>
   </section>
 
