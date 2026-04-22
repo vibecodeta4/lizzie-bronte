@@ -394,8 +394,9 @@
 }
 
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; min-height: unset; }
+  .hero { grid-template-columns: 1fr; min-height: unset; padding-top: 96px; }
   .hero__right { height: 380px; order: -1; }
+  .hero__photo { object-position: center 20%; }
   .hero__overlay { background: linear-gradient(to bottom, rgba(31,111,139,0.6) 0%, rgba(31,111,139,0) 45%), linear-gradient(to top, rgba(31,111,139,0.78) 0%, transparent 40%); }
   .hero__left { padding: var(--space-10) var(--space-6) var(--space-12); justify-content: flex-start; }
   .hero__title { font-size: clamp(1.8rem, 7vw, 2.6rem); }

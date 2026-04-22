@@ -33,12 +33,12 @@ collections:
               - { label: "Role", name: "role", widget: "string" }
 
   # ──────────────────────────────
-  # PRICING & PROGRAMME
+  # PRICING & PROGRAM
   # ──────────────────────────────
   - name: "pricing"
     label: "Pricing"
     files:
-      - label: "Programme Pricing"
+      - label: "Program Pricing"
         name: "pricing"
         file: "_data/pricing.yml"
         fields:
@@ -46,7 +46,7 @@ collections:
           - { label: "Monthly Period Label", name: "monthly_period", widget: "string", hint: "e.g. per month × 3" }
           - { label: "Full Payment Amount", name: "full_amount", widget: "string", hint: "e.g. $2,999" }
           - { label: "Full Payment Label", name: "full_period", widget: "string", hint: "e.g. paid in full" }
-          - { label: "Programme Duration", name: "programme_duration", widget: "string" }
+          - { label: "Program Duration", name: "program_duration", widget: "string" }
 
   # ──────────────────────────────
   # SITE SETTINGS
