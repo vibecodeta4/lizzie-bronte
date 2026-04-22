@@ -102,7 +102,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-weight: var(--weight-light);
+  font-weight: var(--weight-regular);
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
   color: var(--color-text-primary);
@@ -151,7 +151,7 @@ input, textarea, select { font-family: inherit; }
 ──────────────────────────────────────────────────────────────── */
 .eyebrow {
   font-family: var(--font-body);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: var(--weight-medium);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
@@ -160,7 +160,7 @@ input, textarea, select { font-family: inherit; }
 
 .text-body {
   font-size: var(--text-base);
-  font-weight: var(--weight-light);
+  font-weight: var(--weight-regular);
   line-height: var(--leading-relaxed);
   color: var(--color-text-secondary);
 }
@@ -446,7 +446,7 @@ input, textarea, select { font-family: inherit; }
 
 .footer__nav a {
   font-size: var(--text-sm);
-  font-weight: var(--weight-light);
+  font-weight: var(--weight-regular);
   color: rgba(255,255,255,0.6);
   transition: color var(--transition-base);
 }

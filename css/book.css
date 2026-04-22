@@ -29,7 +29,7 @@
 
 .booking-intro__body {
   font-size: var(--text-base);
-  font-weight: var(--weight-light);
+  font-weight: var(--weight-regular);
   line-height: var(--leading-relaxed);
   color: var(--color-text-secondary);
 }
@@ -263,7 +263,7 @@
   color: var(--color-text-primary);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  font-weight: var(--weight-light);
+  font-weight: var(--weight-regular);
   outline: none;
   transition: border-color var(--transition-base);
   width: 100%;
@@ -342,7 +342,7 @@
 
 .booking-success__body {
   font-size: var(--text-base);
-  font-weight: var(--weight-light);
+  font-weight: var(--weight-regular);
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
   max-width: 440px;

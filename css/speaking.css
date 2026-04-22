@@ -26,11 +26,11 @@
 .speaking-intro__inner { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--space-8); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-20); align-items: center; }
 .speaking-intro__title { font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3.8rem); font-weight: var(--weight-light); color: var(--color-deep-purple); line-height: 1.1; margin-bottom: var(--space-6); margin-top: var(--space-5); }
 .speaking-intro__title em { font-style: italic; }
-.speaking-intro__body { font-size: var(--text-base); font-weight: var(--weight-light); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin-bottom: var(--space-6); }
+.speaking-intro__body { font-size: var(--text-base); font-weight: var(--weight-regular); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin-bottom: var(--space-6); }
 .speaking-intro__right { display: flex; flex-direction: column; gap: var(--space-4); }
 .speaking-intro__stat { background-color: var(--color-white); padding: var(--space-6) var(--space-8); border-left: 2px solid var(--color-soft-lavender); }
 .speaking-intro__stat-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--weight-light); color: var(--color-deep-purple); margin-bottom: var(--space-2); }
-.speaking-intro__stat-body { font-size: var(--text-sm); font-weight: var(--weight-light); color: var(--color-text-secondary); }
+.speaking-intro__stat-body { font-size: var(--text-base); font-weight: var(--weight-regular); color: var(--color-text-secondary); }
 
 .topics { background-color: var(--color-deep-purple); padding-block: var(--space-24); position: relative; overflow: hidden; }
 .topics::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(ellipse at 10% 50%, rgba(61,188,196,0.08) 0%, transparent 55%), radial-gradient(ellipse at 90% 50%, rgba(123,158,168,0.07) 0%, transparent 55%); pointer-events: none; }
@@ -44,14 +44,14 @@
 .topic-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(216,166,179,0.35); }
 .topic-card__tag { font-size: var(--text-xs); font-weight: var(--weight-medium); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-sage); margin-bottom: var(--space-4); }
 .topic-card__title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--weight-light); color: var(--color-white); line-height: var(--leading-snug); margin-bottom: var(--space-4); }
-.topic-card__body { font-size: var(--text-sm); font-weight: var(--weight-light); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.5); }
+.topic-card__body { font-size: var(--text-base); font-weight: var(--weight-regular); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.5); }
 
 .booking { background-color: var(--color-white); padding-block: var(--space-24); }
 .booking__inner { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--space-8); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-20); align-items: start; }
 .booking__content .eyebrow { margin-bottom: var(--space-5); }
 .booking__title { font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3.5rem); font-weight: var(--weight-light); color: var(--color-deep-purple); line-height: 1.1; margin-bottom: var(--space-6); margin-top: var(--space-5); }
 .booking__title em { font-style: italic; }
-.booking__body { font-size: var(--text-base); font-weight: var(--weight-light); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin-bottom: var(--space-8); }
+.booking__body { font-size: var(--text-base); font-weight: var(--weight-regular); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin-bottom: var(--space-8); }
 .booking__formats { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-10); }
 .booking__format { display: flex; align-items: flex-start; gap: var(--space-4); padding: var(--space-5); border: 1px solid var(--color-border-light); }
 .booking__format-dot { width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-emerald); flex-shrink: 0; margin-top: 5px; }
@@ -67,7 +67,7 @@
 .spk-cta__inner .eyebrow { color: var(--color-sage); margin-bottom: var(--space-6); }
 .spk-cta__title { font-family: var(--font-display); font-size: clamp(2.5rem, 4.5vw, 4.2rem); font-weight: var(--weight-light); color: var(--color-white); line-height: 1.1; margin-bottom: var(--space-6); }
 .spk-cta__title em { font-style: italic; color: var(--color-soft-lavender); }
-.spk-cta__body { font-size: var(--text-md); font-weight: var(--weight-light); color: rgba(255,255,255,0.55); line-height: var(--leading-relaxed); margin-bottom: var(--space-10); }
+.spk-cta__body { font-size: var(--text-md); font-weight: var(--weight-regular); color: rgba(255,255,255,0.55); line-height: var(--leading-relaxed); margin-bottom: var(--space-10); }
 .spk-cta__ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
 
 @media (max-width: 1024px) { .page-hero__inner { grid-template-columns: 1fr; } .speaking-intro__inner { grid-template-columns: 1fr; } .booking__inner { grid-template-columns: 1fr; } .topics__grid { grid-template-columns: 1fr 1fr; } .speaking-stats .speaking-intro__inner { grid-template-columns: 1fr 1fr; } }
